@@ -4,7 +4,7 @@ module.exports = {
 			host: '127.0.0.1',
 			port: 3000
 		},
-		data: { // absolute paths to the data folders (see https://github.com/opentender-jm/opentender-data)
+		data: { // absolute paths to the data folders (see https://github.com/opentender-ke/opentender-data)
 			path: '/var/www/opentender/data/shared'
 		},
 		backendUrl: 'http://127.0.0.1:3001',
@@ -19,8 +19,8 @@ module.exports = {
 		devMode: false // e.g. disable page tracking if true
 	},
 	country: {
-		id: 'jm',
-		name: 'Jamaica'
+		id: 'ke',
+		name: 'Kenya'
 	},
-	currencySymbol: '$'
+	currencySymbol: 'KES'
 };
