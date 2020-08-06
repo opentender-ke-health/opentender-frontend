@@ -1,138 +1,183 @@
 {
-	"INTEGRITY":{
-		"id":"INTEGRITY",
-		"name":"Integrity Indicator",
-		"plural":"Integrity Indicators",
-		"subindicators":{
-			"INTEGRITY_SINGLE_BID":{
-				"name":"Single bidder contract",
-				"desc":"Single bid signals a risk when only one bid is submitted in a tender in a competitive market.",
-				"order":1
+	"INTEGRITY": {
+		"id": "INTEGRITY",
+		"name": "Integrity Indicator",
+		"plural": "Integrity Indicators",
+		"subindicators": {
+			"INTEGRITY_SINGLE_BID": {
+				"name": "Single bidder contract",
+				"desc": "Single bid signals a risk when only one bid is submitted in a tender in a competitive market.",
+				"order": 1
 			},
-			"INTEGRITY_CALL_FOR_TENDER_PUBLICATION":{
-				"name":"Call for tenders publication",
-				"desc":"Not publishing calls for tender signals a risk when no call for tenders is published prior to a contract award, decreasing the potential bidder pool.",
-				"order":2
+			"INTEGRITY_CALL_FOR_TENDER_PUBLICATION": {
+				"name": "Call for tenders publication",
+				"desc": "Not publishing calls for tender signals a risk when no call for tenders is published prior to a contract award, decreasing the potential bidder pool.",
+				"order": 2
 			},
-			"INTEGRITY_PROCEDURE_TYPE":{
-				"name":"Procedure type",
-				"desc":"Non-open procedures signal a risk of using procedures types which are less open for competition and more readily used for directly contracting connected companies (e.g. negotiated without publication).",
-				"order":3
+			"INTEGRITY_PROCEDURE_TYPE": {
+				"name": "Procedure type",
+				"desc": "Non-open procedures signal a risk of using procedures types which are less open for competition and more readily used for directly contracting connected companies (e.g. negotiated without publication).",
+				"order": 3
 			},
-			"INTEGRITY_ADVERTISEMENT_PERIOD":{
-				"name":"Length of advertisement period",
-				"desc":"Advertisement period length reveals the risk of suspiciously tight bidding deadlines or when advertisement period is excessively long.",
-				"order":4
+			"INTEGRITY_ADVERTISEMENT_PERIOD": {
+				"name": "Length of advertisement period",
+				"desc": "Advertisement period length reveals the risk of suspiciously tight bidding deadlines or when advertisement period is excessively long.",
+				"order": 4
 			},
-			"INTEGRITY_DECISION_PERIOD":{
-				"name":"Length of decision period",
-				"desc":"Length of decision period signals risks when the the decision period length is either suspiciously short or suspiciously long.",
-				"order":5
+			"INTEGRITY_DECISION_PERIOD": {
+				"name": "Length of decision period",
+				"desc": "Length of decision period signals risks when the the decision period length is either suspiciously short or suspiciously long.",
+				"order": 5
 			},
-			"INTEGRITY_DESCRIPTION_LENGTH":{
-				"name":"Description length",
-				"desc":"Product description length signals the risk of product description being tailored to one company, when the description is excessively long.",
-				"order":8
+			"INTEGRITY_NEW_COMPANY": {
+				"notused": true,
+				"name": "New company",
+				"desc": "New company signals the risk of a very young company winning a tender (younger than 1 year at the time of winning).",
+				"order": 0
 			},
-			"INTEGRITY_POLITICAL_CONNECTIONS_OF_SUPPLIERS":{
-				"name":"Political connections of suppliers",
-				"desc":"Political connection of the supplier captures the risk of at least one owner or manager holding a political office.",
-				"order":9
+			"INTEGRITY_TAX_HAVEN": {
+				"notused": true,
+				"name": "Tax haven",
+				"desc": "Tax haven signals a risk when the supplier is located in a tax haven country (based on the financial secrecy index).",
+				"order": 0
 			},
-			"INTEGRITY_WINNER_CA_SHARE":{
-				"name":"Winner's contract share by buyers",
-				"desc":"Winner contract share is the share of contract value won by a given company from a given buyer in a given year.",
-				"order":10
+			"INTEGRITY_DESCRIPTION_LENGTH": {
+				"name": "Description length",
+				"desc": "Product description length signals the risk of product description being tailored to one company, when the description is excessively long.",
+				"order": 6
 			},
-			"INTEGRITY_ELIGIBILITY_CRITERIA_LENGTH":{
-				"name":"Eligibility criteria length",
-				"desc":"Eligibility criteria length signals the risk of criteria being tailored to one company with the criteria description being excessively long.",
-				"order":11
+			"INTEGRITY_POLITICAL_CONNECTIONS_OF_SUPPLIERS": {
+				"notused": true,
+				"name": "Political connections of suppliers",
+				"desc": "Political connection of the supplier captures the risk of at least one owner or manager holding a political office.",
+				"order": 0
 			},
-			"INTEGRITY_EVALUATION_CRITERIA":{
-				"name":"Evaluation criteria",
-				"desc":"Evaluation criteria signal the risk of using non-quantitative criteria to assess bidders which are subjective and can easily be manipulated.",
-				"order":12
+			"INTEGRITY_WINNER_CA_SHARE": {
+				"name": "Winner contract share",
+				"desc": "Winner contract share is the share of contract value won by a given company from a given buyer in a given year.",
+				"order": 7
 			},
-			"INTEGRITY_NR_OF_REQUESTED_BIDS":{
-				"name":"Low number of requested bids",
-				"desc":"Low number of requested bids signals a risk when only low number of bidders can submit bids in a competitive market.",
-				"order":13
+			"INTEGRITY_ELIGIBILITY_CRITERIA_LENGTH": {
+				"notused": true,
+				"name": "Eligibility criteria length",
+				"desc": "Eligibility criteria length signals the risk of criteria being tailored to one company with the criteria description being excessively long.",
+				"order": 0
+			},
+			"INTEGRITY_EVALUATION_CRITERIA": {
+				"notused": true,
+				"name": "Evaluation criteria",
+				"desc": "Evaluation criteria signal the risk of using non-quantitative criteria to assess bidders which are subjective and can easily be manipulated.",
+				"order": 0
+			},
+			"INTEGRITY_NR_OF_REQUESTED_BIDS": {
+				"notused": true,
+				"name": "Number of requested bids",
+				"desc": "Low number of requested bids signals a risk when only low number of bidders can submit bids in a competitive market.",
+				"order": 0
+			},
+			"INTEGRITY_SIGNATURE_PERIOD": {
+				"name": "Length of contract signature period",
+				"desc": "Length of signature period",
+				"order": 8
 			}
 		},
-		"icon":"icon-flag"
+		"icon": "icon-flag"
 	},
-	"TRANSPARENCY":{
-		"id":"TRANSPARENCY",
-		"name":"Transparency Indicator",
-		"plural":"Transparency Indicators",
-		"subindicators":{
-			"TRANSPARENCY_BUYER_NAME_MISSING":{
-				"name":"Share of non-missing buyer name",
-				"desc":"Buyer name is not missing in the published notice.",
-				"order":1
+	"TRANSPARENCY": {
+		"id": "TRANSPARENCY",
+		"name": "Transparency Indicator",
+		"plural": "Transparency Indicators",
+		"subindicators": {
+			"TRANSPARENCY_PUBLICATION_RATE": {
+				"notused": true,
+				"name": "Publication rate",
+				"desc": "Publication rate is the ratio of advertised public procurement spending over the total public procurement spending of a given contracting authority."
 			},
-			"TRANSPARENCY_YEAR_MISSING":{
-				"name":"Share of non-missing year info",
-				"desc":"Year is not missing in the published notice.",
-				"order":2
+			"TRANSPARENCY_NUMBER_OF_KEY_MISSING_FIELDS": {
+				"notused": true,
+				"name": "Share of non-missing key fields",
+				"desc": "Number of key missing fields is the ratio of fields with missing values in the call for tender and contract award announcement related to a given tender (based on the most recently published versions).",
+				"order": 0
 			},
-			"TRANSPARENCY_TITLE_MISSING":{
-				"name":"Share of non-missing title",
-				"desc":"Title is not missing in the published notice.",
-				"order":3
+			"TRANSPARENCY_BUYER_NAME_MISSING": {
+				"name": "Non-missing buyer name",
+				"desc": "Buyer name is not missing in the published notice.",
+				"order": 1
 			},
-			"TRANSPARENCY_BIDDER_NAME_MISSING":{
-				"name":"Share of non-missing bidder name",
-				"desc":"Bidder name is not missing in the published notice.",
-				"order":4
+			"TRANSPARENCY_YEAR_MISSING": {
+				"name": "Non-missing year info",
+				"desc": "Year is not missing in the published notice.",
+				"order": 2
 			},
-			"TRANSPARENCY_BIDDER_ID_MISSING":{
-				"name":"Share of non-missing bidder ID",
-				"desc":"Bidd ID is not missing in the published notice.",
-				"order":5
+			"TRANSPARENCY_TITLE_MISSING": {
+				"name": "Non-missing title",
+				"desc": "Title is not missing in the published notice.",
+				"order": 3
 			},
-			"TRANSPARENCY_CA_TYPE_MISSING":{
-				"name":"Share of non-missing buyer type",
-				"desc":"Buyer type is not missing in the published notice.",
-				"order":6
+			"TRANSPARENCY_BIDDER_NAME_MISSING": {
+				"name": "Non-missing bidder name",
+				"desc": "Bidder name is not missing in the published notice.",
+				"order": 4
 			},
-			"TRANSPARENCY_VALUE_MISSING":{
-				"name":"Share of non-missing contract value",
-				"desc":"Contract value is not missing in the published notice.",
-				"order":7
+			"TRANSPARENCY_BIDDER_ID_MISSING": {
+				"name": "Non-missing bidder ID",
+				"desc": "Bidd ID is not missing in the published notice.",
+				"order": 5
 			},
-			"TRANSPARENCY_IMP_LOC_MISSING":{
-				"name":"Share of non-missing implementation location",
-				"desc":"Implementation location is not missing in the published notice.",
-				"order":8
+			"TRANSPARENCY_CA_TYPE_MISSING": {
+				"name": "Non-missing buyer type",
+				"desc": "Buyer type is not missing in the published notice.",
+				"order": 6
 			},
-			"TRANSPARENCY_PROC_METHOD_MISSING":{
-				"name":"Share of non-missing procedure type",
-				"desc":"Procedure type is not missing in the published notice.",
-				"order":9
+			"TRANSPARENCY_VALUE_MISSING": {
+				"name": "Non-missing contract value",
+				"desc": "Contract value is not missing in the published notice.",
+				"order": 7
 			},
-			"TRANSPARENCY_BID_NR_MISSING":{
-				"name":"Share of non-missing number of bids",
-				"desc":"Number of bids is not missing in the published notice.",
-				"order":10
+			"TRANSPARENCY_IMP_LOC_MISSING": {
+				"notused": true,
+				"name": "Non-missing implementation location",
+				"desc": "Implementation location is not missing in the published notice.",
+				"order": 0
 			},
-			"TRANSPARENCY_AWARD_DATE_MISSING":{
-				"name":"Share of non-missing award date",
-				"desc":"Award date is not missing in the published notice.",
-				"order":11
+			"TRANSPARENCY_PROC_METHOD_MISSING": {
+				"name": "Non-missing procedure type",
+				"desc": "Procedure type is not missing in the published notice.",
+				"order": 8
 			},
-			"TRANSPARENCY_HEADOFENTITY_DATE_MISSING":{
-				"name":"Share of non-missing head of entity approval date",
-				"desc":"Head of entity approval date is not missing in the published notice.",
-				"order":12
+			"TRANSPARENCY_BID_NR_MISSING": {
+				"name": "Non-missing number of bids",
+				"desc": "Number of bids is not missing in the published notice.",
+				"order": 9
 			},
-			"TRANSPARENCY_COMMITTEE_DATE_MISSING":{
-				"name":"Share of non-missing committee approval date",
-				"desc":"Committee approval date is not missing in the published notice.",
-				"order":13
+			"TRANSPARENCY_AWARD_DATE_MISSING": {
+				"name": "Non-missing award date",
+				"desc": "Award date is not missing in the published notice.",
+				"order": 10
+			},
+			"TRANSPARENCY_HEADOFENTITY_DATE_MISSING": {
+				"notused": true,
+				"name": "Non-missing head of entity approval date",
+				"desc": "Head of entity approval date is not missing in the published notice.",
+				"order": 0
+			},
+			"TRANSPARENCY_COMMITTEE_DATE_MISSING": {
+				"notused": true,
+				"name": "Non-missing committee approval date",
+				"desc": "Committee approval date is not missing in the published notice.",
+				"order": 0
+			},
+			"TRANSPARENCY_BUYER_LOC_MISSING": {
+				"name": "Non-missing buyer location",
+				"desc": "Buyer location is not missing in the published notice.",
+				"order": 11
+			},
+			"TRANSPARENCY_SIGN_DATE_MISSING": {
+				"name": "Non-missing contract signature date",
+				"desc": "Contract signature date is not missing in the published notice.",
+				"order": 12
 			}
 		},
-		"icon":"icon-checkmark"
+		"icon": "icon-checkmark"
 	}
 }
