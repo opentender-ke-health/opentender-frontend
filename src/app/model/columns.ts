@@ -273,37 +273,37 @@ export const TenderColumns: Array<ITableColumnTender> = [
 	// 		return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
 	// 	}
 	// },
-	{
-		name: 'Supplier Type',
-		id: 'lots.bids.bidder.body.bidderType',
-		group: 'Supplier',
-		sortBy: {
-			id: 'lots.bids.bidder.body.bidderType',
-			ascend: true
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let result: Array<ITableCellLine> = [];
-			tender.lots.forEach((lot: Lot) => {
-				if (lot.bids) {
-					lot.bids.forEach((bid: Bid) => {
-						if (bid.bidders) {
-							bid.bidders.forEach((bidder: Bidder) => {
-								if (bidder.bidderType) {
-									result.push({
-										content: bidder.bidderType
-									});
-								}
-							});
-						}
-					});
-				}
-			});
-			return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
-		}
-	},
+	// {
+	// 	name: 'Supplier Type',
+	// 	id: 'lots.bids.bidder.body.bidderType',
+	// 	group: 'Supplier',
+	// 	sortBy: {
+	// 		id: 'lots.bids.bidder.body.bidderType',
+	// 		ascend: true
+	// 	},
+	// 	format: (tender, library) => {
+	// 		if (!tender.lots) {
+	// 			return [];
+	// 		}
+	// 		let result: Array<ITableCellLine> = [];
+	// 		tender.lots.forEach((lot: Lot) => {
+	// 			if (lot.bids) {
+	// 				lot.bids.forEach((bid: Bid) => {
+	// 					if (bid.bidders) {
+	// 						bid.bidders.forEach((bidder: Bidder) => {
+	// 							if (bidder.bidderType) {
+	// 								result.push({
+	// 									content: bidder.bidderType
+	// 								});
+	// 							}
+	// 						});
+	// 					}
+	// 				});
+	// 			}
+	// 		});
+	// 		return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
+	// 	}
+	// },
 	{
 		name: 'Buyer',
 		id: 'buyers.name',
@@ -338,7 +338,8 @@ export const TenderColumns: Array<ITableColumnTender> = [
 			tender.buyers.forEach((buyer: Buyer) => {
 				if (buyer.address && buyer.address.ot && buyer.address.ot.nutscode) {
 					let nut = buyer.address.ot.nutscode;
-					result.push({icon: ICON.region, content: nut, hint: library.i18n.get('Profile Page') + ' NUTS ' + nut, link: '/region/' + nut});
+					let city = buyer.address.city;
+					result.push({icon: ICON.region, content: city, hint: library.i18n.get('Profile Page') + ' NUTS ' + nut, link: '/region/' + nut});
 				}
 			});
 			return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
@@ -701,16 +702,16 @@ export const TenderColumns: Array<ITableColumnTender> = [
 	// 		});
 	// 	}
 	// },
-	// {
-	// 	name: 'Deposits',
-	// 	id: 'deposits',
-	// 	group: 'Tender Requirements',
-	// 	sortBy: {
-	// 		id: 'deposits',
-	// 		ascend: true
-	// 	},
-	// 	format: tender => [{content: tender.deposits}]
-	// },
+	{
+		name: 'Deposits',
+		id: 'deposits',
+		group: 'Tender Requirements',
+		sortBy: {
+			id: 'deposits',
+			ascend: true
+		},
+		format: tender => [{content: tender.deposits}]
+	},
 	// {
 	// 	name: 'Personal Requirements',
 	// 	id: 'personalRequirements',
@@ -774,178 +775,178 @@ export const TenderColumns: Array<ITableColumnTender> = [
 			return ColumnsFormatUtils.checkEntryCollapse(result, library);
 		}
 	},
-	{
-		name: 'Committee Approval Date',
-		id: 'lots.committeeApprovalDate',
-		group: 'Dates',
-		sortBy: {
-			id: 'lots.committeeApprovalDate',
-			ascend: false
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let dates = {};
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.committeeApprovalDate) {
-					dates[lot.committeeApprovalDate] = dates[lot.committeeApprovalDate] || {date: lot.committeeApprovalDate, lots: []};
-					dates[lot.committeeApprovalDate].lots.push(index_l + 1);
-				}
-			});
-			let result: Array<ITableCellLine> = [];
-			let datekeys = Object.keys(dates);
-			datekeys.forEach(key => {
-					let c = dates[key];
-					if (c.lots.length > 5) {
-						c.lots = c.lots.slice(0, 5);
-						c.lots.push('…');
-					}
-					result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
-				}
-			);
-			return ColumnsFormatUtils.checkEntryCollapse(result, library);
-		}
-	},
-	{
-		name: 'Head Of Entity Approval Date',
-		id: 'lots.headOfEntityApprovalDate',
-		group: 'Dates',
-		sortBy: {
-			id: 'lots.headOfEntityApprovalDate',
-			ascend: false
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let dates = {};
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.headOfEntityApprovalDate) {
-					dates[lot.headOfEntityApprovalDate] = dates[lot.headOfEntityApprovalDate] || {date: lot.headOfEntityApprovalDate, lots: []};
-					dates[lot.headOfEntityApprovalDate].lots.push(index_l + 1);
-				}
-			});
-			let result: Array<ITableCellLine> = [];
-			let datekeys = Object.keys(dates);
-			datekeys.forEach(key => {
-					let c = dates[key];
-					if (c.lots.length > 5) {
-						c.lots = c.lots.slice(0, 5);
-						c.lots.push('…');
-					}
-					result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
-				}
-			);
-			return ColumnsFormatUtils.checkEntryCollapse(result, library);
-		}
-	},
-	{
-		name: 'Endorsement Date',
-		id: 'lots.endorsementDate',
-		group: 'Dates',
-		sortBy: {
-			id: 'lots.endorsementDate',
-			ascend: false
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let dates = {};
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.endorsementDate) {
-					dates[lot.endorsementDate] = dates[lot.endorsementDate] || {date: lot.endorsementDate, lots: []};
-					dates[lot.endorsementDate].lots.push(index_l + 1);
-				}
-			});
-			let result: Array<ITableCellLine> = [];
-			let datekeys = Object.keys(dates);
-			datekeys.forEach(key => {
-					let c = dates[key];
-					if (c.lots.length > 5) {
-						c.lots = c.lots.slice(0, 5);
-						c.lots.push('…');
-					}
-					result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
-				}
-			);
-			return ColumnsFormatUtils.checkEntryCollapse(result, library);
-		}
-	},
-	{
-		name: 'Cabinet Approval Date',
-		id: 'lots.cabinetApprovalDate',
-		group: 'Dates',
-		sortBy: {
-			id: 'lots.cabinetApprovalDate',
-			ascend: false
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let dates = {};
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.cabinetApprovalDate) {
-					dates[lot.cabinetApprovalDate] = dates[lot.cabinetApprovalDate] || {date: lot.cabinetApprovalDate, lots: []};
-					dates[lot.cabinetApprovalDate].lots.push(index_l + 1);
-				}
-			});
-			let result: Array<ITableCellLine> = [];
-			let datekeys = Object.keys(dates);
-			datekeys.forEach(key => {
-					let c = dates[key];
-					if (c.lots.length > 5) {
-						c.lots = c.lots.slice(0, 5);
-						c.lots.push('…');
-					}
-					result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
-				}
-			);
-			return ColumnsFormatUtils.checkEntryCollapse(result, library);
-		}
-	},
 	// {
-	// 	name: 'Estimated Start Date',
-	// 	id: 'estimatedStartDate',
+	// 	name: 'Committee Approval Date',
+	// 	id: 'lots.committeeApprovalDate',
 	// 	group: 'Dates',
 	// 	sortBy: {
-	// 		id: 'estimatedStartDate',
+	// 		id: 'lots.committeeApprovalDate',
 	// 		ascend: false
 	// 	},
-	// 	format: (tender, library) => [{content: library.i18n.formatDate(tender.estimatedStartDate)}]
+	// 	format: (tender, library) => {
+	// 		if (!tender.lots) {
+	// 			return [];
+	// 		}
+	// 		let dates = {};
+	// 		tender.lots.forEach((lot: Lot, index_l: number) => {
+	// 			if (lot.committeeApprovalDate) {
+	// 				dates[lot.committeeApprovalDate] = dates[lot.committeeApprovalDate] || {date: lot.committeeApprovalDate, lots: []};
+	// 				dates[lot.committeeApprovalDate].lots.push(index_l + 1);
+	// 			}
+	// 		});
+	// 		let result: Array<ITableCellLine> = [];
+	// 		let datekeys = Object.keys(dates);
+	// 		datekeys.forEach(key => {
+	// 				let c = dates[key];
+	// 				if (c.lots.length > 5) {
+	// 					c.lots = c.lots.slice(0, 5);
+	// 					c.lots.push('…');
+	// 				}
+	// 				result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
+	// 			}
+	// 		);
+	// 		return ColumnsFormatUtils.checkEntryCollapse(result, library);
+	// 	}
 	// },
 	// {
-	// 	name: 'Estimated Completion Date',
-	// 	id: 'estimatedCompletionDate',
+	// 	name: 'Head Of Entity Approval Date',
+	// 	id: 'lots.headOfEntityApprovalDate',
 	// 	group: 'Dates',
 	// 	sortBy: {
-	// 		id: 'estimatedCompletionDate',
+	// 		id: 'lots.headOfEntityApprovalDate',
 	// 		ascend: false
 	// 	},
-	// 	format: (tender, library) => [{content: library.i18n.formatDate(tender.estimatedCompletionDate)}]
+	// 	format: (tender, library) => {
+	// 		if (!tender.lots) {
+	// 			return [];
+	// 		}
+	// 		let dates = {};
+	// 		tender.lots.forEach((lot: Lot, index_l: number) => {
+	// 			if (lot.headOfEntityApprovalDate) {
+	// 				dates[lot.headOfEntityApprovalDate] = dates[lot.headOfEntityApprovalDate] || {date: lot.headOfEntityApprovalDate, lots: []};
+	// 				dates[lot.headOfEntityApprovalDate].lots.push(index_l + 1);
+	// 			}
+	// 		});
+	// 		let result: Array<ITableCellLine> = [];
+	// 		let datekeys = Object.keys(dates);
+	// 		datekeys.forEach(key => {
+	// 				let c = dates[key];
+	// 				if (c.lots.length > 5) {
+	// 					c.lots = c.lots.slice(0, 5);
+	// 					c.lots.push('…');
+	// 				}
+	// 				result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
+	// 			}
+	// 		);
+	// 		return ColumnsFormatUtils.checkEntryCollapse(result, library);
+	// 	}
 	// },
 	// {
-	// 	name: 'Bid Deadline',
-	// 	id: 'bidDeadline',
+	// 	name: 'Endorsement Date',
+	// 	id: 'lots.endorsementDate',
 	// 	group: 'Dates',
 	// 	sortBy: {
-	// 		id: 'bidDeadline',
+	// 		id: 'lots.endorsementDate',
 	// 		ascend: false
 	// 	},
-	// 	format: (tender, library) => [{content: library.i18n.formatDatetime(tender.bidDeadline)}]
+	// 	format: (tender, library) => {
+	// 		if (!tender.lots) {
+	// 			return [];
+	// 		}
+	// 		let dates = {};
+	// 		tender.lots.forEach((lot: Lot, index_l: number) => {
+	// 			if (lot.endorsementDate) {
+	// 				dates[lot.endorsementDate] = dates[lot.endorsementDate] || {date: lot.endorsementDate, lots: []};
+	// 				dates[lot.endorsementDate].lots.push(index_l + 1);
+	// 			}
+	// 		});
+	// 		let result: Array<ITableCellLine> = [];
+	// 		let datekeys = Object.keys(dates);
+	// 		datekeys.forEach(key => {
+	// 				let c = dates[key];
+	// 				if (c.lots.length > 5) {
+	// 					c.lots = c.lots.slice(0, 5);
+	// 					c.lots.push('…');
+	// 				}
+	// 				result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
+	// 			}
+	// 		);
+	// 		return ColumnsFormatUtils.checkEntryCollapse(result, library);
+	// 	}
 	// },
 	// {
-	// 	name: 'Documents Deadline',
-	// 	id: 'documentsDeadline',
+	// 	name: 'Cabinet Approval Date',
+	// 	id: 'lots.cabinetApprovalDate',
 	// 	group: 'Dates',
 	// 	sortBy: {
-	// 		id: 'documentsDeadline',
+	// 		id: 'lots.cabinetApprovalDate',
 	// 		ascend: false
 	// 	},
-	// 	format: (tender, library) => [{content: library.i18n.formatDatetime(tender.documentsDeadline)}]
+	// 	format: (tender, library) => {
+	// 		if (!tender.lots) {
+	// 			return [];
+	// 		}
+	// 		let dates = {};
+	// 		tender.lots.forEach((lot: Lot, index_l: number) => {
+	// 			if (lot.cabinetApprovalDate) {
+	// 				dates[lot.cabinetApprovalDate] = dates[lot.cabinetApprovalDate] || {date: lot.cabinetApprovalDate, lots: []};
+	// 				dates[lot.cabinetApprovalDate].lots.push(index_l + 1);
+	// 			}
+	// 		});
+	// 		let result: Array<ITableCellLine> = [];
+	// 		let datekeys = Object.keys(dates);
+	// 		datekeys.forEach(key => {
+	// 				let c = dates[key];
+	// 				if (c.lots.length > 5) {
+	// 					c.lots = c.lots.slice(0, 5);
+	// 					c.lots.push('…');
+	// 				}
+	// 				result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
+	// 			}
+	// 		);
+	// 		return ColumnsFormatUtils.checkEntryCollapse(result, library);
+	// 	}
 	// },
+	{
+		name: 'Estimated Start Date',
+		id: 'estimatedStartDate',
+		group: 'Dates',
+		sortBy: {
+			id: 'estimatedStartDate',
+			ascend: false
+		},
+		format: (tender, library) => [{content: library.i18n.formatDate(tender.estimatedStartDate)}]
+	},
+	{
+		name: 'Estimated Completion Date',
+		id: 'estimatedCompletionDate',
+		group: 'Dates',
+		sortBy: {
+			id: 'estimatedCompletionDate',
+			ascend: false
+		},
+		format: (tender, library) => [{content: library.i18n.formatDate(tender.estimatedCompletionDate)}]
+	},
+	{
+		name: 'Bid Deadline',
+		id: 'bidDeadline',
+		group: 'Dates',
+		sortBy: {
+			id: 'bidDeadline',
+			ascend: false
+		},
+		format: (tender, library) => [{content: library.i18n.formatDatetime(tender.bidDeadline)}]
+	},
+	{
+		name: 'Documents Deadline',
+		id: 'documentsDeadline',
+		group: 'Dates',
+		sortBy: {
+			id: 'documentsDeadline',
+			ascend: false
+		},
+		format: (tender, library) => [{content: library.i18n.formatDatetime(tender.documentsDeadline)}]
+	},
 
 	{
 		name: 'Creation Date',
@@ -1054,30 +1055,30 @@ export const TenderColumns: Array<ITableColumnTender> = [
 			return ColumnsFormatUtils.checkEntryCollapse(result, library);
 		}
 	},
-	{
-		name: 'Requested Bids Count',
-		id: 'lots.requestedBidsCount',
-		group: 'Lots',
-		sortBy: {
-			id: 'lots.requestedBidsCount',
-			ascend: false
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let result: Array<ITableCellLine> = [];
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (Utils.isDefined(lot.requestedBidsCount)) {
-					result.push({
-						prefix: (tender.lots.length > 1) ? library.i18n.get('Lot') + ' ' + (index_l + 1) : undefined,
-						content: lot.requestedBidsCount.toString()
-					});
-				}
-			});
-			return ColumnsFormatUtils.checkEntryCollapse(result, library);
-		}
-	}
+	// {
+	// 	name: 'Requested Bids Count',
+	// 	id: 'lots.requestedBidsCount',
+	// 	group: 'Lots',
+	// 	sortBy: {
+	// 		id: 'lots.requestedBidsCount',
+	// 		ascend: false
+	// 	},
+	// 	format: (tender, library) => {
+	// 		if (!tender.lots) {
+	// 			return [];
+	// 		}
+	// 		let result: Array<ITableCellLine> = [];
+	// 		tender.lots.forEach((lot: Lot, index_l: number) => {
+	// 			if (Utils.isDefined(lot.requestedBidsCount)) {
+	// 				result.push({
+	// 					prefix: (tender.lots.length > 1) ? library.i18n.get('Lot') + ' ' + (index_l + 1) : undefined,
+	// 					content: lot.requestedBidsCount.toString()
+	// 				});
+	// 			}
+	// 		});
+	// 		return ColumnsFormatUtils.checkEntryCollapse(result, library);
+	// 	}
+	// }
 	// {
 	// 	name: 'Valid Bids Count',
 	// 	id: 'lots.validBidsCount',
