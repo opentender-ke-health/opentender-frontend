@@ -135,7 +135,6 @@
 				"order": 7
 			},
 			"TRANSPARENCY_IMP_LOC_MISSING": {
-				"notused": true,
 				"name": "Non-missing buyer location",
 				"desc": "Buyer location is not missing in the published notice.",
 				"order": 0
@@ -166,6 +165,11 @@
 				"name": "Non-missing committee approval date",
 				"desc": "Committee approval date is not missing in the published notice.",
 				"order": 0
+			},
+			"TRANSPARENCY_BUYER_LOC_MISSING": {
+				"name": "Non-missing buyer location",
+				"desc": "Buyer location is not missing in the published notice.",
+				"order": 11
 			},
 			"TRANSPARENCY_SIGN_DATE_MISSING": {
 				"name": "Non-missing contract signature date",
