@@ -166,11 +166,6 @@
 				"desc": "Committee approval date is not missing in the published notice.",
 				"order": 0
 			},
-			"TRANSPARENCY_BUYER_LOC_MISSING": {
-				"name": "Non-missing buyer location",
-				"desc": "Buyer location is not missing in the published notice.",
-				"order": 11
-			},
 			"TRANSPARENCY_SIGN_DATE_MISSING": {
 				"name": "Non-missing contract signature date",
 				"desc": "Contract signature date is not missing in the published notice.",
