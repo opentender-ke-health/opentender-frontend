@@ -13,6 +13,24 @@
 						<h3 class="download-block__title">{{current.name}}</h3>
 						<p class="download-block__description"><strong><ng-container i18n>Tenders</ng-container></strong>: <span class="download-block__accented-text">{{current.count}}</span></p>
 					</div>
+					<div class="download-block__col download-block__col_bgc_second">
+						<h4 class="download-block__subtitle">CSV</h4>
+						<ul class="download-block__list">
+							<li class="download-block__list-item" *ngIf="current.formats.csv">
+								<a class="download-block__list-item-link download-button" href="/data/files/{{current.formats.csv.filename}}" download>
+									<i class="icon-cloud-download"></i> <strong>Digiwhist CSV</strong>
+									<p>{{current.formats.csv.size | formatFileSize}}</p>
+								</a>
+							</li>
+						</ul>
+						<div class="download-block__info-wrap">
+							<info-button>
+								<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
+									incididunt ut labore et dolore magna aliqua.</p>
+							</info-button>
+							<p class="download-block__info-wrap-text">CSV data description</p>
+						</div>
+					</div>
 					<div class="download-block__col download-block__col_bgc_third">
 						<h4 class="download-block__subtitle">JSON</h4>
 						<ul class="download-block__list">
@@ -42,24 +60,6 @@
 									incididunt ut labore et dolore magna aliqua.</p>
 							</info-button>
 							<p class="download-block__info-wrap-text">OCDS data description</p>
-						</div>
-					</div>
-					<div class="download-block__col download-block__col_bgc_second">
-						<h4 class="download-block__subtitle">CSV</h4>
-						<ul class="download-block__list">
-							<li class="download-block__list-item" *ngIf="current.formats.csv">
-								<a class="download-block__list-item-link download-button" href="/data/files/{{current.formats.csv.filename}}" download>
-									<i class="icon-cloud-download"></i> <strong>Digiwhist CSV</strong>
-									<p>{{current.formats.csv.size | formatFileSize}}</p>
-								</a>
-							</li>
-						</ul>
-						<div class="download-block__info-wrap">
-							<info-button>
-								<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-									incididunt ut labore et dolore magna aliqua.</p>
-							</info-button>
-							<p class="download-block__info-wrap-text">CSV data description</p>
 						</div>
 					</div>
 				</div>
