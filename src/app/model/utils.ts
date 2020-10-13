@@ -55,7 +55,6 @@ export const Utils = {
 			heads.push(head);
 			return {rows: list, heads: heads};
 		} else {
-			let hasID = header.hasOwnProperty('id');
 			let list = data.map(d => {
 				return [d.name, d.value];
 			});
