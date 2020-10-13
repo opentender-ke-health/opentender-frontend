@@ -22,11 +22,11 @@ import * as Config from '../../../../../config.dist.js';
 		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-left">
-				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Nr. of Tenders</button>
+				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Number of tenders</button>
 				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Volume ({{currencySymbol}})</button>
 			</div>
 			<div class="graph-toolbar graph-toolbar-right">
-				<button class="tool-button" [ngClass]="{down:!absolute}" (click)="toggleAbsolute(false)" i18n>Average</button>
+				<button class="tool-button" [ngClass]="{down:!absolute}" (click)="toggleAbsolute(false)" i18n>Share/Average</button>
 				<button class="tool-button" [ngClass]="{down:absolute}" (click)="toggleAbsolute(true)" i18n>Absolute</button>
 			</div>
 		</div>
@@ -169,9 +169,9 @@ export class GraphIndicatorHistogramComponent implements OnChanges, ISeriesProvi
 	constructor(private i18n: I18NService) {
 		let year = this.i18n.get('Year');
 		this.avg_lots_in_years.chart.xAxis.label = year;
-		this.avg_lots_in_years.chart.yAxis.label = this.i18n.get('Average % of Tenders');
+		this.avg_lots_in_years.chart.yAxis.label = this.i18n.get('% of Tenders');
 		this.sum_lots_in_years.chart.xAxis.label = year;
-		this.sum_lots_in_years.chart.yAxis.label = this.i18n.get('Nr. of Tenders');
+		this.sum_lots_in_years.chart.yAxis.label = this.i18n.get('Number of tenders');
 		this.sum_prices_in_years.chart.xAxis.label = year;
 		this.sum_prices_in_years.chart.yAxis.label = this.i18n.get(`Volume of Tenders (${this.currencySymbol})`);
 		this.avg_prices_in_years.chart.xAxis.label = year;

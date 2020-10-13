@@ -13,8 +13,8 @@ import * as Config from '../../../../../config.dist.js';
 			<div class="graph-title">
 				{{title}}
 				<info-button>
-					<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-						incididunt ut labore et dolore magna aliqua.</p>
+					<p>The size of different sectors can be displayed in terms of monetary value or the number of tenders. Click on the tiles to get sector-specific statistics.<br>
+						Contracts are categorized into product markets (CPV codes) based on the tender description. See more on the details of contract categorization and the CPV nomenclature in the Data Explainer on the About page.</p>
 				</info-button>
 			</div>
 			<div class="graph-toolbar-container">

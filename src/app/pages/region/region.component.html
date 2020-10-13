@@ -8,24 +8,36 @@
 		<div class="container container-margin">
 			<div class="container">
 				<div class="container-left-12" *ngIf="region.level>=3">
-					<div class="graph-title" i18n>Nr. of Tenders in Region</div>
+					<div class="graph-title" i18n>Number of Tenders in Region</div>
 					<graph nutsmap [data]="viz.child_regions.data" [level]="region.level"></graph>
 				</div>
 				<div class="container-left-12" *ngIf="region.level<3">
-					<div class="graph-title" i18n>Nr. of Tenders in Subregions</div>
+					<div class="graph-title" i18n>Number of tenders in sub-regions</div>
 					<graph nutsmap [data]="viz.child_regions.data" [level]="region.level+1"></graph>
 				</div>
 			</div>
 			<div class="container">
 				<div class="container-left-6">
-					<graph companies [data]="viz.top_companies.data" [title]="viz.top_companies.title"></graph>
+					<graph companies [showTooltip]="false" [data]="viz.top_companies.data" [title]="viz.top_companies.title"></graph>
 				</div>
 				<div class="container-left-6">
-					<graph authorities [data]="viz.top_authorities.data" [title]="viz.top_authorities.title"></graph>
+					<graph authorities [showTooltip]="false" [data]="viz.top_authorities.data" [title]="viz.top_authorities.title"></graph>
 				</div>
 			</div>
 			<div class="container">
-				<graph benchmarks [data]="viz.benchmarks.data" [title]="viz.benchmarks.title" [entityTitle]="region.name" [filters]="viz.benchmarks.filters" [footerLegend]="REGION_BENCHMARK" (filtersChange)="benchmarkFilterChange($event)"></graph>
+				<graph benchmarks
+					 [tooltip]="[
+							'Benchmark the selected region using different indicators and compare its annual scores to the national average. Choose between the overall Good Procurement Score, which combines all Transparency and Integrity Indicators, and the individual Transparency or Integrity indicators, or compare the region by contract values.',
+							'The Integrity Indicators are a number of red flags that indicate a risk of low level of integrity in a procurement process. They evaluate different elements of the process of awarding contracts such as the length of the tender advertisement period, as well as key outputs such as number of bidders. For further details see the Data Explainer on the About page.',
+							'The Transparency Indicators represent the availability of crucial pieces of information, such as the names of buyers and bidders, dates, the number of bids, the contract value, and the procedure type. For further details see the Data Explainer on the About page.'
+						]"
+					 [data]="viz.benchmarks.data"
+					 [title]="viz.benchmarks.title"
+					 [entityTitle]="region.name"
+					 [filters]="viz.benchmarks.filters"
+					 [footerLegend]="REGION_BENCHMARK"
+					 (filtersChange)="benchmarkFilterChange($event)"
+				></graph>
 			</div>
 		</div>
 		<div class="container">

@@ -2,12 +2,10 @@ import {NgModule} from '@angular/core';
 import {routing} from './about.routing';
 import {CommonModule} from '@angular/common';
 import {AboutOpentenderPage} from './opentender/opentender.component';
-import {AboutPage} from './about.component';
-import {AboutHowPage} from './how/how.component';
-import {AboutGlossaryPage} from './glossary/glossary.component';
 import {FormsModule} from '@angular/forms';
 import {BreadcrumbModule} from '../../modules/breadcrumb/breadcrumb.module';
-import {AboutPartnerNetworkPage} from './partner-network/partner-network.component';
+import {accordionComponent} from './accordion/accordion.component';
+import {AboutPage} from './about.component';
 
 @NgModule({
 	imports: [
@@ -19,9 +17,7 @@ import {AboutPartnerNetworkPage} from './partner-network/partner-network.compone
 	declarations: [
 		AboutPage,
 		AboutOpentenderPage,
-		AboutGlossaryPage,
-		AboutPartnerNetworkPage,
-		AboutHowPage
+		accordionComponent
 	]
 })
 export class AboutModule {

@@ -134,7 +134,12 @@
 		<div *ngIf="state.indi.open" class="">
 			<div *ngIf="tender.indicators.length===0" i18n>There are no Indicators for this Tender</div>
 			<div *ngFor="let group of viz.indicator_groups">
-				<div class="graph-title">{{group.title}}</div>
+				<div class="graph-title">
+					{{group.title}}
+					<info-button>
+						<p *ngFor="let text of tooltips[group.title]">{{text}}</p>
+					</info-button>
+				</div>
 				<div class="">
 					<div class="container-left-3">
 						<graph score-grid [data]="group.scores"></graph>

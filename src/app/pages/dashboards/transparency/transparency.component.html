@@ -1,1 +1,9 @@
-<indicator-dashboard [indicator]="indicator" [columnIds]="columnIds"></indicator-dashboard>
+<indicator-dashboard
+	[pageDescription]="[
+		'The listed indicators assess the level of transparency in public procurement by measuring the share of crucial pieces of information available.',
+		'View the composite score or select individual indicators related to key information and their weights.'
+	]"
+	[indicator]="indicator"
+	[columnIds]="columnIds"
+	[pageID]="'transparency'"
+></indicator-dashboard>

@@ -1,7 +1,7 @@
 
 .download-block {
 	border: 1px solid #979797;
-	margin-bottom: 50px;
+	margin-bottom: 110px;
 
 	&__title {
 		width: 100%;
@@ -80,7 +80,7 @@
 			top: calc(100% + 10px);
 			left: 25px;
 			display: flex;
-			align-items: center;
+			align-items: flex-start;
 
 			&_right {
 				left: 265px;

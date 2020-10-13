@@ -42,13 +42,13 @@
           "path": "company",
           "title": "Search Company",
           "menu": true,
-          "menu_title": "Company"
+          "menu_title": "Supplier"
         },
         {
           "path": "authority",
           "title": "Search Authority",
           "menu": true,
-          "menu_title": "Authority"
+          "menu_title": "Buyer"
         }
       ]
     },

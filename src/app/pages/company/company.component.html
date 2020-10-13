@@ -37,7 +37,12 @@
 					<graph histogram [data]="viz.lots_in_years.data"></graph>
 				</div>
 				<div class="container-left-6">
-					<graph sectors [data]="viz.cpvs_codes.data"></graph>
+					<graph sectors
+								 [tooltip]="[
+								 	'The figure shows the number of tenders this supplier has won in different sectors. Contracts are categorized into sectors by defining product markets (CPV codes) based on the contract information. See more on the details of contract categorization and the CPV nomenclature in the Data Explainer on the About page.'
+								 ]"
+								 [data]="viz.cpvs_codes.data"
+					></graph>
 				</div>
 			</div>
 			<br/>
@@ -52,7 +57,15 @@
 			<br/>
 			<div class="container">
 				<div class="container-left-12">
-					<graph benchmarks [data]="viz.stats.data" [title]="viz.stats.title" [entityTitle]="company.name" [filters]="viz.stats.filters" (filtersChange)="benchmarkFilterChange($event)"></graph>
+					<graph benchmarks
+								 [tooltip]="['Compare the selected supplier to all other suppliers using different indicators. Choose either the overall Good Procurement Score, which combines all Transparency and Integrity Indicators, or the individual Transparency or Integrity indicators. You can limit the comparison to suppliers operating in the same sector if you tick the \'Limit to same sector\' box. For further details see the Data Explainer on the About page.']"
+								 [data]="viz.stats.data"
+								 [title]="viz.stats.title"
+								 [entityTitle]="company.name"
+								 [filters]="viz.stats.filters"
+								 [footerLegend]="REGION_BENCHMARK"
+								 (filtersChange)="benchmarkFilterChange($event)"
+					></graph>
 				</div>
 			</div>
 			<br>

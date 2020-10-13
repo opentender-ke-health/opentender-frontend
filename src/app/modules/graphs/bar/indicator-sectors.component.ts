@@ -12,13 +12,12 @@ import {Colors} from '../../../model/colors';
 		<div class="graph-title" i18n>
 			{{title}} per Sector
 			<info-button>
-				<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-					incididunt ut labore et dolore magna aliqua.</p>
+				<p>Click on any of the bars to get more details on the sector. Contracts are categorized into sectors by defining product markets (CPV codes) based on the contract information. See more on the details of contract categorization and the CPV nomenclature in the Data Explainer on the About page.</p>
 			</info-button>
 		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-right">
-				<button class="tool-button" [ngClass]="{down:this.graph==this.cpvs_codes_average}" (click)="this.graph=this.cpvs_codes_average" i18n>Average</button>
+				<button class="tool-button" [ngClass]="{down:this.graph==this.cpvs_codes_average}" (click)="this.graph=this.cpvs_codes_average" i18n>Share (%)</button>
 				<button class="tool-button" [ngClass]="{down:this.graph==this.cpvs_codes_absolute}" (click)="this.graph=this.cpvs_codes_absolute" i18n>Absolute</button>
 			</div>
 		</div>
@@ -106,9 +105,9 @@ export class GraphIndicatorSectorsComponent implements OnChanges, ISeriesProvide
 	graph: IChartBar = this.cpvs_codes_average;
 
 	constructor(private router: Router, private i18n: I18NService) {
-		this.cpvs_codes_average.chart.xAxis.label = this.i18n.get('Average % of Tenders');
+		this.cpvs_codes_average.chart.xAxis.label = this.i18n.get('% of Tenders');
 		this.cpvs_codes_average.chart.yAxis.label = this.i18n.get('Sector (CPV Division)');
-		this.cpvs_codes_absolute.chart.xAxis.label = this.i18n.get('Nr. of Tenders');
+		this.cpvs_codes_absolute.chart.xAxis.label = this.i18n.get('Number of tenders');
 		this.cpvs_codes_absolute.chart.yAxis.label = this.i18n.get('Sector (CPV Division)');
 		this.cpvs_codes_average.chart.i18n = this.i18n.ChartsTranslations;
 		this.cpvs_codes_absolute.chart.i18n = this.i18n.ChartsTranslations;

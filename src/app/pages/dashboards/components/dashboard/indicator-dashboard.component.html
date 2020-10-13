@@ -2,13 +2,19 @@
 
 	<div class="container">
 		<h1 class="container-title">{{title}}</h1>
+		<p class="container-description" *ngFor="let text of pageDescription">{{text}}</p>
 	</div>
 	<div class="container container-margin">
 		<div class="container-left-12">
 			<select-year-range [years]="viz.scores.years.data" (onRangeChange)="onYearRangeSliderChange($event)"></select-year-range>
 		</div>
 		<div class="form-group">
-			<label for="subindicator" i18n>Sub-Indicators</label>
+			<label for="subindicator" i18n>
+				Sub-Indicators
+				<info-button>
+					<p *ngFor="let text of tooltips[pageID].adjustWeights">{{text}}</p>
+				</info-button>
+			</label>
 			<select class="form-control form-subindicator" id="subindicator" [(ngModel)]="selected" (change)="selectChange($event)">
 				<option [ngValue]="null">[<ng-container i18n>All sub-indicators</ng-container>]</option>
 				<option *ngFor="let sub of subindicators" [ngValue]="sub">{{sub.name}}</option>
@@ -26,8 +32,7 @@
 				<div class="graph-title" i18n>
 					Average Score of {{indicatorTitle}}
 					<info-button>
-						<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-							incididunt ut labore et dolore magna aliqua.</p>
+						<p *ngFor="let text of tooltips[pageID].averageScoreOfIndicators">{{text}}</p>
 					</info-button>
 				</div>
 			</div>
@@ -40,10 +45,19 @@
 		</div>
 		<div class="container">
 			<div class="container-left-6">
-				<graph score-histogram [data]="viz.scores.score_in_years.data" [title]="viz.scores.score_in_years.title" [glossary]="'#'+(selected?selected.id:indicator.id)"></graph>
+				<graph score-histogram
+							 [data]="viz.scores.score_in_years.data"
+							 [title]="viz.scores.score_in_years.title"
+							 [glossary]="'#'+(selected?selected.id:indicator.id)"
+							 [tooltipTexts]="tooltips[pageID].averageScoreOverTime"
+				></graph>
 			</div>
 			<div class="container-left-6">
-				<graph score-sectors [data]="viz.scores.score_in_sectors.data" [title]="viz.scores.score_in_sectors.title"></graph>
+				<graph score-sectors
+							 [data]="viz.scores.score_in_sectors.data"
+							 [title]="viz.scores.score_in_sectors.title"
+							 [tooltipTexts]="tooltips[pageID].averageScorePerSector"
+				></graph>
 			</div>
 		</div>
 	</div>
@@ -66,19 +80,25 @@
 		<div class="container container-margin">
 			<div class="container">
 				<div class="container-left-6">
-					<graph indicator-histogram [data]="viz.ranges.lots_in_years.data" [title]="viz.ranges.lots_in_years.title"></graph>
+					<graph indicator-histogram
+								 [data]="viz.ranges.lots_in_years.data"
+								 [title]="titles[pageID].averageScoreOverTime"
+					></graph>
 				</div>
 				<div class="container-left-6">
-					<graph indicator-sectors [data]="viz.ranges.cpvs_codes.data" [title]="viz.ranges.cpvs_codes.title"></graph>
+					<graph indicator-sectors
+								 [data]="viz.ranges.cpvs_codes.data"
+								 [title]="viz.ranges.cpvs_codes.title"
+					></graph>
 				</div>
 			</div>
 			<br/>
 			<div class="container">
 				<div class="container-left-6">
-					<graph companies [data]="viz.ranges.top_companies.data" [title]="viz.ranges.top_companies.title"></graph>
+					<graph companies [showTooltip]="false" [data]="viz.ranges.top_companies.data" [title]="viz.ranges.top_companies.title"></graph>
 				</div>
 				<div class="container-left-6">
-					<graph authorities [data]="viz.ranges.top_authorities.data" [title]="viz.ranges.top_authorities.title"></graph>
+					<graph authorities [showTooltip]="false" [data]="viz.ranges.top_authorities.data" [title]="viz.ranges.top_authorities.title"></graph>
 				</div>
 			</div>
 		</div>

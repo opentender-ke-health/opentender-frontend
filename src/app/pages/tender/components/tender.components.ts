@@ -59,7 +59,7 @@ export class TenderBodyAddressComponent {
 	selector: 'tender-body',
 	template: `
 		<div *ngIf="body">
-			<a *ngIf="link" routerLink="{{link}}"><i *ngIf="icon" class="{{icon}}"></i> {{body.name | nameGuard}}</a><span *ngIf="!link">{{body.name | nameGuard}}</span><br/>
+			Supplier name: <a *ngIf="link" routerLink="{{link}}"> <i *ngIf="icon" class="{{icon}}"></i> {{body.name | nameGuard}}</a><span *ngIf="!link">{{body.name | nameGuard}}</span><br/>
 			<tender-body-address *ngIf="body.address" [address]="body.address"></tender-body-address>
 		</div>
 	`
@@ -93,10 +93,7 @@ export class TenderBodyLineComponent {
 	moduleId: __filename,
 	selector: 'tender-price',
 	template: `<span *ngIf="price">
-	<div *ngIf="price.netAmountEur | defined"><span>€</span> {{price.netAmountEur | formatCurrencyValue}}</div>
-	<ng-container *ngIf="price.currency!=='EUR'">
 	<div *ngIf="price.netAmountNational | defined"><span>(national)</span> <span>{{price.currencyNational | formatCurrency}}</span> {{price.netAmountNational | formatCurrencyValue}}</div>
-	</ng-container>
 	<div *ngIf="price.vat | defined"><span>(VAT)</span> {{price.vat}}%</div>
 </span>`
 })

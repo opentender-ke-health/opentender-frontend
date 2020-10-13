@@ -9,6 +9,7 @@ import {
 } from '../../../../app.interfaces';
 import {IChartData} from '../../../../thirdparty/ngx-charts-universal/chart.interface';
 import {PlatformService} from '../../../../services/platform.service';
+import * as Config from '../../../../../../config.dist';
 
 @Component({
 	moduleId: __filename,
@@ -19,6 +20,9 @@ import {PlatformService} from '../../../../services/platform.service';
 export class DashboardsIndicatorComponent implements OnChanges {
 	@Input() indicator: IIndicatorInfo;
 	@Input() columnIds;
+	@Input() pageDescription = [''];
+	@Input() pageID = '';
+	public currencySymbol = Config.currencySymbol;
 	private icon: string = '';
 	private searchPrefix: string = '';
 	private searchScore: [number, number] = [0, 50];
@@ -64,6 +68,50 @@ export class DashboardsIndicatorComponent implements OnChanges {
 		years?: { startValue: number, endValue: number };
 	} = {};
 	public storageId = '_tender-table';
+	public titles = {
+		transparency: {
+			averageScoreOverTime: 'Spending within the Selected Transparency Score Range '
+		},
+		integrity: {
+			averageScoreOverTime: 'Spending within the selected Integrity Score range '
+		}
+	};
+	public tooltips = {
+		transparency: {
+			adjustWeights: [
+				'Select individual transparency indicators or view the overall score. You can edit how the score is composed by changing the weight of the individual transparency indicators and the "Average Score of Transparency Indicators" will be recalculated using those new weights.',
+				'For example, if you think that it is more important that bidder names are published while the publication of committee approval dates might be less important, you can adjust the weight of the latter indicator to 5 and it\'s score will only count half as much as the others.'
+			],
+			averageScoreOfIndicators: [
+				'The Average Score of Transparency Indicators figure shows the share of available key fields during the selected time period.',
+				'For example, an average score of 90 means that 90% of the key fields (covered by the individual transparency indicators) were available in the source data during the selected time period.'
+			],
+			averageScoreOverTime: [
+				'The Average Score of Transparency Indicators over Time figure shows the share of available key fields during the selected time period by years.',
+				'For example, an average score of 90 means that 90% of the key fields (covered by the individual transparency indicators) were available in the source data in that year.'
+			],
+			averageScorePerSector: [
+				'Sector-wise average of the Transparency Score. Click on any of the bars to get more details on the sector. Contracts are categorized into sectors by defining product markets (CPV codes) based on the contract information. See more on the details of contract categorization and the CPV nomenclature in the Data Explainer on the About page.',
+			],
+		},
+		integrity: {
+			adjustWeights: [
+				'Select individual integrity indicators or view the overall score. You can edit how the score is composed by changing the weight of the individual indicators and the "Average Score of Integrity Indicators" will be recalculated using those new weights.',
+				'For example, if you think that the length of the advertisement period is not as important as the other indicators, you can adjust the weight of the latter indicator to 5 and it\'s score will only count half as much as the others. Or if you want exclude some indicators entirely and only keep those most important to you, e.g. to see the combined score for the prevalence of single bidding and non-open procedure types, you can adjust the weight of all other indicators to 0.'
+			],
+			averageScoreOfIndicators: [
+				'The Average Score of Transparency Indicators figure shows the share of available key fields during the selected time period.',
+				'For example, an average score of 90 means that 90% of the key fields (covered by the individual transparency indicators) were available in the source data during the selected time period.'
+			],
+			averageScoreOverTime: [
+				'The Average Score of Integrity Indicators over Time figure shows the average of the individual Integrity Indicators for all contracts during the selected time period by years.',
+				'For example, an average score of 40 means that only 40% of the key integrity dimensions showed no risks (covered by the individual integrity indicators) based on all contracts awarded during the selected time period.'
+			],
+			averageScorePerSector: [
+				'Sector-wise average of the Integrity Score. Click on any of the bars to get more details on the sector. Contracts are categorized into sectors by defining product markets (CPV codes) based on the contract information. See more on the details of contract categorization and the CPV nomenclature in the Data Explainer on the About page.'
+			],
+		},
+	}
 
 	constructor(private api: ApiService, private i18n: I18NService, private notify: NotifyService, private platform: PlatformService) {
 		this.viz.ranges.top_authorities.title = i18n.get('Main Buyers in Score Range');

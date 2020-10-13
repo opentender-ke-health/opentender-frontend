@@ -8,7 +8,7 @@ import {Colors} from '../../../model/colors';
 @Component({
 	selector: 'graph[home-histogram]',
 	template: `
-		<div class="graph-title" i18n>Tenders per Year</div>
+		<div class="graph-title" i18n>Number of public tenders per year</div>
 		<ngx-charts-bar-vertical
 				class="chart-container"
 				[chart]="graph.chart"
@@ -53,7 +53,7 @@ export class GraphHomeHistogramComponent implements OnChanges, ISeriesProvider {
 
 	constructor(private i18n: I18NService) {
 		this.lots_in_years.chart.xAxis.label = this.i18n.get('Year');
-		this.lots_in_years.chart.yAxis.label = this.i18n.get('Nr. of Tenders');
+		this.lots_in_years.chart.yAxis.label = this.i18n.get('Number of Tenders');
 		this.lots_in_years.chart.i18n = this.i18n.ChartsTranslations;
 	}
 

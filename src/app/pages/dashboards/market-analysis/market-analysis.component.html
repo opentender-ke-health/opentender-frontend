@@ -1,6 +1,7 @@
 <div class="container-outer dashboards">
 	<div class="container">
 		<h1 class="container-title" i18n>Market Analysis</h1>
+		<p class="container-description">An overview of the country's public procurement markets. Explore different sectors and timeframes and see their market volume, Good Procurement Scores, and main suppliers and buyers.</p>
 	</div>
 	<div class="container container-margin">
 		<select-year-range [years]="viz.years.data" (onRangeChange)="onYearRangeSliderChange($event)"></select-year-range>
@@ -14,10 +15,29 @@
 			</div>
 			<div class="container">
 				<div class="container-left-6">
-					<graph score-histogram [data]="viz.score_in_years.data" [title]="viz.score_in_years.title" [glossary]="'#TENDER'"></graph>
+					<graph score-histogram
+								 [data]="viz.score_in_years.data"
+								 [title]="viz.score_in_years.title"
+								 [glossary]="'#TENDER'"
+								 [tooltipTexts]="[
+								 	'The Good Procurement Score combines the Transparency and Integrity Indicators. It takes the average of all the indicators used to measure the levels of transparency and integrity of the procurement processes recorded in the underlying dataset.',
+									'The Transparency Indicators represent the availability of crucial pieces of information, such as the names of buyers and bidders, dates, the number of bids, the contract value, and the procedure type. You can explore the full list of Transparency Indicators on the Transparency page.',
+									'The Integrity Indicators are a number of red flags that indicate a risk of low level of integrity in a procurement process. They evaluate different elements of the process of awarding contracts such as the length of the tender advertisement period, as well as key outputs such as number of bidders. You can explore the full list of Integrity Indicators on the Integrity page.',
+									'For further details see the Data Explainer on the About page.'
+									]"
+					></graph>
 				</div>
 				<div class="container-left-6">
-					<graph score-sectors [data]="viz.score_in_sectors.data" [title]="viz.score_in_sectors.title"></graph>
+					<graph score-sectors
+								 [data]="viz.score_in_sectors.data"
+								 [title]="viz.score_in_sectors.title"
+								 [tooltipTexts]="[
+									 'The Good Procurement Score combines the Transparency and Integrity Indicators. It takes the average of all the indicators used to measure the levels of transparency and integrity of the procurement processes recorded in the underlying dataset.',
+									 'The Transparency Indicators represent the availability of crucial pieces of information, such as the names of buyers and bidders, dates, the number of bids, the contract value, and the procedure type. You can explore the full list of Transparency Indicators on the Transparency page.',
+									 'The Integrity Indicators are a number of red flags that indicate a risk of low level of integrity in a procurement process. They evaluate different elements of the process of awarding contracts such as the length of the tender advertisement period, as well as key outputs such as number of bidders. You can explore the full list of Integrity Indicators on the Integrity page.',
+									 'Click on any of the bars to get more details on a specific sector. Contracts are categorized into sectors by defining product markets (CPV codes) based on the contract information. See more on the details of contract categorization and the CPV nomenclature in the Data Explainer on the About page.'
+								 ]"
+					></graph>
 				</div>
 			</div>
 			<div class="container">
@@ -61,7 +81,7 @@
 					</tr>
 				</thead>
 				<tr *ngFor="let sectorInfo of sectors_stats">
-					<td><a [routerLink]="['/sector/'+sectorInfo.sector.id]"><i class="icon-hammer icon-large"></i></a></td>
+					<td><a [routerLink]="['/sector/'+sectorInfo.sector.id]" class="center"><i class="icon-hammer icon-large"></i></a></td>
 					<td>{{sectorInfo.sector.id}}</td>
 					<td>{{sectorInfo.sector.name}}</td>
 					<td>{{sectorInfo.sector.value | formatNumber}}</td>

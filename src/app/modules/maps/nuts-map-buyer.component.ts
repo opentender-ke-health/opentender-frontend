@@ -8,8 +8,7 @@ import {I18NService} from '../i18n/services/i18n.service';
 		<div class="graph-title" i18n>
 			Buyers by Region
 			<info-button>
-				<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-					incididunt ut labore et dolore magna aliqua.</p>
+				<p>See in which region the buyers procuring from this supplier are based. Region information was assigned using raw addresses published on the original source, for more details see the Data Explainer on the About page.</p>
 			</info-button>
 		</div>
 		<div class="graph-toolbar-container">

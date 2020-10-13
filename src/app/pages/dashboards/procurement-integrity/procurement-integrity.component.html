@@ -1,1 +1,9 @@
-<indicator-dashboard [indicator]="indicator" [columnIds]="columnIds"></indicator-dashboard>
+<indicator-dashboard
+	[pageDescription]="[
+		'The listed indicators assess the level of integrity in public procurement by measuring a number of red flags that indicate a risk of low level of integrity in a procurement process. They evaluate different elements of the process of awarding contracts such as the length of the tender advertisement period, as well as key outputs such as number of bidders. For further details see the Data Explainer on the About page.',
+		'View the composite Integrity score or select individual indicators and their weights.'
+	]"
+	[indicator]="indicator"
+	[columnIds]="columnIds"
+	[pageID]="'integrity'"
+></indicator-dashboard>

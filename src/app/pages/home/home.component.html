@@ -7,14 +7,12 @@
 				</div>
 				<div class="hero__content">
 					<div class="main-info-block">
-						<p class="main-info-block__accented-text">Some text</p>
+						<p class="main-info-block__accented-text">Opentender {{countryname}}</p>
 						<h2 class="main-info-block__title" i18n="Banner Slogan Main Page|The portal slogan">Making Public Tenders More Transparent</h2>
 						<p class="main-info-block__text">
-							<ng-container i18n>Welcome to the portal for {{countryname}}!</ng-container>
+							<ng-container i18n>Welcome to the Opentender portal of {{countryname}}! It compiles and visualises public procurement information in {{countryname}}.</ng-container>
 							<br/>
-							<ng-container i18n>This platform is part of the <a target="_blank" rel="noopener" href="http://digiwhist.eu">DIGIWHIST project</a></ng-container>
-							<br>
-							<ng-container i18n>Subscribe to our <a href="https://opentender.us12.list-manage.com/subscribe/post?u=961461fc5e4bda742e2ffb764&id=896595d352" target="_blank" rel="noopener" >mailing list</a></ng-container>
+							<ng-container i18n>This portal is part of the 'Curbing Corruption in Public Procurement' project, that has developed a new methodology for identifying corruption risks in public procurement, funded by the Global Integrity Anti-Corruption Evidence (ACE) programme.</ng-container>
 						</p>
 					</div>
 				</div>
@@ -30,18 +28,9 @@
 							<div class="main-info-block">
 								<p class="main-info-block__accented-text">Data overview</p>
 								<a [routerLink]="['/dashboards/market-analysis']" i18n-title title="Market Analysis" class="main-info-block__title-link">
-									<h3 class="main-info-block__title" i18n>Market Analysis</h3>
+									<h3 class="main-info-block__title" i18n>Market analysis</h3>
 								</a>
-								<p class="main-info-block__text" i18n>This dashboard provides overview of public procurement markets, helping buyers and bidders to tender more effectively.</p>
-							</div>
-						</li>
-						<li class="card-list__item">
-							<div class="main-info-block">
-								<p class="main-info-block__accented-text">Search and Find</p>
-								<a [routerLink]="['/search']" i18n-title title="Search" class="main-info-block__title-link">
-									<h3 class="main-info-block__title" i18n>Search</h3>
-								</a>
-								<p class="main-info-block__text" i18n>In this section you can search in the data by criteria of your interest. The results are downloadable for detailed examination.</p>
+								<p class="main-info-block__text" i18n>An overview of public procurement markets, such as market volume broken down by sectors and years, as well as Good Procurement Scores.</p>
 							</div>
 						</li>
 						<li class="card-list__item">
@@ -50,7 +39,7 @@
 								<a [routerLink]="['/dashboards/integrity']" i18n-title title="Indicators" class="main-info-block__title-link">
 									<h3 class="main-info-block__title" i18n>Integrity</h3>
 								</a>
-								<p class="main-info-block__text" i18n>This dashboard allows you to analyse and benchmark the degree of transparency in public procurement tenders.</p>
+								<p class="main-info-block__text" i18n>Analyse and benchmark the degree of <strong>integrity</strong> in public procurement tenders.</p>
 							</div>
 						</li>
 						<li class="card-list__item">
@@ -59,7 +48,16 @@
 								<a [routerLink]="['/dashboards/transparency']" i18n-title title="Transparency" class="main-info-block__title-link">
 									<h3 class="main-info-block__title" i18n>Transparency</h3>
 								</a>
-								<p class="main-info-block__text" i18n>This dashboard allows you to analyse and benchmark the degree of transparency in public procurement tenders.</p>
+								<p class="main-info-block__text" i18n>Analyse and benchmark the degree of <strong>transparency</strong> in public procurement tenders.</p>
+							</div>
+						</li>
+						<li class="card-list__item">
+							<div class="main-info-block">
+								<p class="main-info-block__accented-text">Search and Find</p>
+								<a [routerLink]="['/search']" i18n-title title="Search" class="main-info-block__title-link">
+									<h3 class="main-info-block__title" i18n>Search</h3>
+								</a>
+								<p class="main-info-block__text" i18n>You can search for specific public procurement contracts by criteria of your interest.</p>
 							</div>
 						</li>
 					</ul>

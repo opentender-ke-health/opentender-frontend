@@ -51,7 +51,7 @@ export class DashboardsMarketAnalysisPage implements OnInit, OnDestroy {
 		this.viz.sectors_stats.title = i18n.get('Sector Overview');
 		this.viz.top_authorities.title = i18n.get('Main Buyers');
 		this.viz.top_companies.title = i18n.get('Main Suppliers');
-		this.viz.procedure_types.title = i18n.get('Procedure Type');
+		this.viz.procedure_types.title = i18n.get('Tenders per procedure type');
 		this.viz.lots_in_years.title = i18n.get('Tenders over Time');
 	}
 

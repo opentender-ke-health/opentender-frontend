@@ -57,9 +57,9 @@ export const Utils = {
 		} else {
 			let hasID = header.hasOwnProperty('id');
 			let list = data.map(d => {
-				return hasID ? [d.id, d.name, d.value] : [d.name, d.value];
+				return [d.name, d.value];
 			});
-			return {rows: list, heads: [hasID ? [header.id, header.name, header.value] : [header.name, header.value]]};
+			return {rows: list, heads: [header.name, header.value]};
 		}
 	},
 	downloadSeries: function(format, data, header, multi: boolean, exportfilename): void {

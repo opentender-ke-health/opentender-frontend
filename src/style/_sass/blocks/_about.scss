@@ -47,39 +47,5 @@
 			display: flex;
 			justify-content: space-between;
 		}
-
-		&__col {
-			&_w23p {
-				width: 23%;
-			}
-
-			&_w32p {
-				width: 32%;
-			}
-
-			&_w40p {
-				width: 40%;
-			}
-
-			&_w56p {
-				width: 56%;
-			}
-
-			&_w74p {
-				width: 74%;
-			}
-
-			&_ta_c {
-				text-align: center;
-			}
-		}
-	}
-
-	@include mq_min(1024px) {
-		&__col {
-			&_ta_c {
-				text-align: center;
-			}
-		}
 	}
 }

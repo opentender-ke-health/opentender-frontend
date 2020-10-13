@@ -1,6 +1,6 @@
 <h2 class="table-title">{{title}}<span class="table-title__value">{{title_value}}</span><i class="icon-spinner2 icon-rotate" *ngIf="loading>0"></i></h2>
 <div class="btn btn_main select-filter-btn" [class.active]="showDialog" (click)="showDialog = !showDialog">
-	Select table columns
+	Add/Remove table columns
 </div>
 <div *ngIf="showDialog" class="select-columns-wrap">
 	<select-columns [columns_all]="columns_all" [columns_active]="columns_active" (selectChange)="onSelectColumns($event)" (restore)="restoreColumns()"></select-columns>

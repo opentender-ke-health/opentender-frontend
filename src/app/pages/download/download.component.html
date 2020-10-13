@@ -3,7 +3,7 @@
 		<div class="section__heading">
 			<div class="section__flex-wrap section__flex-wrap_ai_fe">
 				<h1 class="container-title" i18n>Download</h1>
-				<p i18n class="container-title-text">On this page you find all the tender data of this portal.</p>
+				<p i18n class="container-title-text">Find all the tender data of this portal in three different downloadable formats.</p>
 			</div>
 		</div>
 		<div class="section__content section__content_mt_s" *ngIf="current">
@@ -13,53 +13,50 @@
 						<h3 class="download-block__title">{{current.name}}</h3>
 						<p class="download-block__description"><strong><ng-container i18n>Tenders</ng-container></strong>: <span class="download-block__accented-text">{{current.count}}</span></p>
 					</div>
-					<div class="download-block__col download-block__col_bgc_third">
-						<h4 class="download-block__subtitle">JSON</h4>
-						<ul class="download-block__list">
-							<li class="download-block__list-item" *ngIf="current.formats.json">
-								<a class="download-block__list-item-link download-button" href="/data/files/{{current.formats.json.filename}}" download>
-									<i class="icon-cloud-download"></i> <strong>Digiwhist JSON</strong>
-									<p>{{current.formats.json.size | formatFileSize}}</p>
-								</a>
-							</li>
-							<li class="download-block__list-item" *ngIf="current.formats.ocds">
-								<a class="download-block__list-item-link download-button" href="/data/files/{{current.formats.ocds.filename}}" download>
-									<i class="icon-cloud-download"></i> <strong>OCDS JSON</strong>
-									<p>{{current.formats.ocds.size | formatFileSize}}</p>
-								</a>
-							</li>
-						</ul>
-						<div class="download-block__info-wrap">
-							<info-button>
-								<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-									incididunt ut labore et dolore magna aliqua.</p>
-							</info-button>
-							<p class="download-block__info-wrap-text">JSON data description</p>
-						</div>
-						<div class="download-block__info-wrap download-block__info-wrap_right">
-							<info-button>
-								<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-									incididunt ut labore et dolore magna aliqua.</p>
-							</info-button>
-							<p class="download-block__info-wrap-text">OCDS data description</p>
-						</div>
-					</div>
 					<div class="download-block__col download-block__col_bgc_second">
 						<h4 class="download-block__subtitle">CSV</h4>
 						<ul class="download-block__list">
 							<li class="download-block__list-item" *ngIf="current.formats.csv">
 								<a class="download-block__list-item-link download-button" href="/data/files/{{current.formats.csv.filename}}" download>
-									<i class="icon-cloud-download"></i> <strong>Digiwhist CSV</strong>
+									<i class="icon-cloud-download"></i> <strong>CSV download</strong>
 									<p>{{current.formats.csv.size | formatFileSize}}</p>
 								</a>
 							</li>
 						</ul>
 						<div class="download-block__info-wrap">
 							<info-button>
-								<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-									incididunt ut labore et dolore magna aliqua.</p>
+								<p>A comma-separated values (CSV) file is a delimited text file that uses a comma to separate values. Each line of the file is a data record which consists of one or more fields, separated by commas. The CSV file format is supported by almost all spreadsheets and database management systems, including Excel for example.</p>
 							</info-button>
-							<p class="download-block__info-wrap-text">CSV data description</p>
+							<p class="download-block__info-wrap-text">This download contains all the tender data of this portal in a CSV file and structured in the <a href="https://drive.google.com/file/d/1fb7CgXJ2dqpbYujZRF8RU0gEBHwOojGM/view">Digiwhist/Opentender standard format</a>.</p>
+						</div>
+					</div>
+					<div class="download-block__col download-block__col_bgc_third">
+						<h4 class="download-block__subtitle">JSON</h4>
+						<ul class="download-block__list">
+							<li class="download-block__list-item" *ngIf="current.formats.json">
+								<a class="download-block__list-item-link download-button" href="/data/files/{{current.formats.json.filename}}" download>
+									<i class="icon-cloud-download"></i> <strong>JSON download</strong>
+									<p>{{current.formats.json.size | formatFileSize}}</p>
+								</a>
+							</li>
+							<li class="download-block__list-item" *ngIf="current.formats.ocds">
+								<a class="download-block__list-item-link download-button" href="/data/files/{{current.formats.ocds.filename}}" download>
+									<i class="icon-cloud-download"></i> <strong>OCDS JSON download</strong>
+									<p>{{current.formats.ocds.size | formatFileSize}}</p>
+								</a>
+							</li>
+						</ul>
+						<div class="download-block__info-wrap">
+							<info-button>
+								<p>JavaScript Object Notation (JSON) is an open standard file format and data-interchange format that uses human-readable text to store and transmit data objects.</p>
+							</info-button>
+							<p class="download-block__info-wrap-text">This download contains all the tender data of this portal in a JSON file and structured in the <a href="https://docs.google.com/spreadsheets/d/13pGIpt47sMBnZ68E-N-hMLiErpDB1CQwZzd2MXIlq5U/edit#gid=623190471" target="_blank">Digiwhist/Opentender standard</a> using a defined <a href="https://github.com/digiwhist/opentender-data/blob/master/shared/schema.json" target="_blank">schema</a>.</p>
+						</div>
+						<div class="download-block__info-wrap download-block__info-wrap_right">
+							<info-button>
+								<p>JavaScript Object Notation (JSON) is an open standard file format and data-interchange format that uses human-readable text to store and transmit data objects. Open Contracting Data Standard (OCDS) is an open data standard for public contracting developed by the Open Contracting Partnership.</p>
+							</info-button>
+							<p class="download-block__info-wrap-text">This download contains all the tender data of this portal in a JSON file and structured in the OCDS format.</p>
 						</div>
 					</div>
 				</div>

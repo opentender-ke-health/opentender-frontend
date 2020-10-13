@@ -10,10 +10,15 @@ import * as Config from '../../../../../config.dist.js';
 @Component({
 	selector: 'graph[companies]',
 	template: `
-		<div class="graph-title">{{title}}</div>
+		<div class="graph-title">
+			{{title}}
+			<info-button *ngIf="showTooltip">
+				<p>Supplier refers to any company providing goods, works, or services to a public entity (a buyer).</p>
+			</info-button>
+		</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-left">
-				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Nr. of Tenders</button>
+				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Number of tenders</button>
 				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Volume ({{currencySymbol}})</button>
 			</div>
 		</div>
@@ -32,6 +37,7 @@ export class GraphCompaniesComponent implements OnChanges, ISeriesProvider {
 		absolute: IStatsCompanies,
 		volume: IStatsCompanies,
 	};
+	@Input() showTooltip = true;
 	mode: string = 'nr';
 	currencySymbol = Config.currencySymbol;
 

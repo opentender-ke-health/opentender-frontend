@@ -23,7 +23,7 @@
 						</div>
 						<div class="page-footer__col">
 							<ul class="page-footer__col-list">
-								<li class="page-footer__col-list-item"><a href="https://twitter.com/digiwhist" target="_blank" rel="noopener" class="page-footer__col-list-link page-footer__col-list-link_twitter" i18n>Follow Us on Twitter</a></li>
+								<li class="page-footer__col-list-item"><a href="https://twitter.com/corruption_red" target="_blank" rel="noopener" class="page-footer__col-list-link page-footer__col-list-link_twitter" i18n>Follow Us on Twitter</a></li>
 								<li class="page-footer__col-list-item"><a href="https://opentender.us12.list-manage.com/subscribe/post?u=961461fc5e4bda742e2ffb764&id=896595d352" target="_blank" rel="noopener" class="page-footer__col-list-link page-footer__col-list-link_subscribe" i18n>Subscribe the mailing list</a></li>
 							</ul>
 						</div>
@@ -36,159 +36,16 @@
 				<div class="page-footer__row">
 					<div class="page-footer__cols page-footer__cols_jc_sb">
 						<div class="page-footer__wrap">
-							<p class="page-footer__text page-footer__text_callout" i18n>Questions?</p>
+							<p class="page-footer__text page-footer__text_callout" i18n>Questions or comments? Found a data error?</p>
 							<p class="page-footer__text" i18n>Contact Opentender at <a href="mailto:{{contactmail}}" class="page-footer__link">{{contactmail}}</a>.</p>
-							<p class="page-footer__text" i18n>Found a data error? Please report it anonymously through the <a class="clickable" (click)="showDialog = !showDialog" class="page-footer__link">contact form</a>.</p>
 						</div>
 						<div class="page-footer__wrap">
 							<p class="page-footer__text">
-								<ng-container i18n>This site (<a class="page-footer__link" target="_blank" rel="noopener" href="https://github.com/digiwhist">{{'v'+version}}</a>) is powered by open source code.</ng-container><br>
+								<ng-container i18n>This portal is part of the 'Curbing Corruption in Public Procurement' project, funded by the Global Integrity Anti-Corruption Evidence (ACE) programme. The ACE programme is funded with UK aid from the British people.</ng-container>
 							</p>
-							<p class="page-footer__text">
-								<ng-container i18n>We welcome contributions and comments on <a target="_blank" rel="noopener" href="https://github.com/digiwhist/opentender-frontend/issues" class="page-footer__link">GitHub</a>.</ng-container>
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="page-footer__row">
-					<div class="page-footer__cols page-footer__cols_jc_sb">
-						<div class="page-footer__wrap page-footer__wrap_d_f page-footer__wrap_ai_fs">
-							<img class="page-footer__flag-img" alt="European Union" src="/assets/img/european-union-flag.jpg">
-							<p class="page-footer__text" i18n>This project has received funding from the <a class="page-footer__link" href="https://ec.europa.eu/programmes/horizon2020/" target="_blank" rel="noopener">European Union’s Horizon 2020 research and innovation programme</a> under grant agreement <a class="page-footer__link" href="https://cordis.europa.eu/project/rcn/194398_en.html" target="_blank" rel="noopener">No 645852</a>.</p>
-						</div>
-						<div class="page-footer__wrap">
-							<p class="page-footer__text" i18n>The information and views set out on this website are those of the author(s) only and do not reflect any collection opinion of the DIGIWHIST consortium, nor do they reflect the official opinion of the European Commission. Neither the European Commission nor any Person acting on behalf of the European Commission is responsible for the use which might be made of the Information published on this website.</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 </div>
-
-<!--<div class="container-outer">-->
-<!--	<div class="container">-->
-<!--		<div class="footer-col_left">-->
-<!--			<ul class="list-unstyled">-->
-<!--				<li class="footer-list_item">-->
-<!--					<div class="footer-logo">-->
-<!--						<a href="{{'/start' | portalLink}}"><img alt="Opentender" src="/assets/img/ot.png"></a>-->
-<!--					</div>-->
-<!--					<ul class="list-unstyled footer-logo_note">-->
-<!--						<li class="footer-list_item_heading"><a class="link-beta" href="{{'/start' | portalLink}}" i18n>Portal Overview</a></li>-->
-<!--					</ul>-->
-<!--				</li>-->
-<!--			</ul>-->
-<!--		</div>-->
-<!--		<div class="footer-col_right">-->
-<!--			<div class="footer-nav-links">-->
-<!--				<div class="footer-nav" *ngIf="!isRootPage">-->
-<!--					<ul class="list-unstyled">-->
-<!--						<li class="footer-list_item_heading"><a class="link-beta" [routerLink]="['/about/about-opentender']" i18n>About Opentender</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/about/about-opentender']" i18n>What is Opentender?</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/about/how-opentender-works']" i18n>How Opentender works</a></li>-->
-<!--					</ul>-->
-<!--				</div>-->
-<!--				<div class="footer-nav" *ngIf="isRootPage">-->
-<!--					<ul class="list-unstyled">-->
-<!--						<li class="footer-list_item_heading"><a class="link-beta" [routerLink]="['/download']" i18n>Data</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/download']" i18n>Download</a></li>-->
-<!--					</ul>-->
-<!--				</div>-->
-<!--				<div class="footer-nav" *ngIf="!isRootPage">-->
-<!--					<ul class="list-unstyled">-->
-<!--						<li class="footer-list_item_heading"><a class="link-beta" [routerLink]="['/dashboards']" i18n>Data</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/search/tender']" i18n>Search</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/dashboards']" i18n>Dashboards</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/download']" i18n>Download</a></li>-->
-<!--					</ul>-->
-<!--				</div>-->
-<!--				<div class="footer-nav">-->
-<!--					<ul class="list-unstyled">-->
-<!--						<li class="footer-list_item_heading"><a class="link-beta" [routerLink]="['/imprint']" i18n>Imprint</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/imprint']" pageScroll="#contact" i18n>Contact</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/imprint']" pageScroll="#legal" i18n>Legal Notice</a></li>-->
-<!--						<li class="footer-list_item"><a class="link-beta" [routerLink]="['/imprint']" pageScroll="#privacy" i18n>Privacy Policy</a></li>-->
-<!--					</ul>-->
-<!--				</div>-->
-<!--				<div class="footer-nav donate-button">-->
-<!--					<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">-->
-<!--						<input type="hidden" name="cmd" value="_s-xclick" />-->
-<!--						<input type="hidden" name="hosted_button_id" value="WVMWGQM9HFTTN" />-->
-<!--						<input-->
-<!--							type="image"-->
-<!--							src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"-->
-<!--							border="0"-->
-<!--							name="submit"-->
-<!--							title="PayPal - The safer, easier way to pay online!"-->
-<!--							alt="Donate with PayPal button" />-->
-<!--						<img alt="" border="0" src="https://www.paypal.com/en_HU/i/scr/pixel.gif" width="1" height="1"/>-->
-<!--					</form>-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--	<div class="container">-->
-<!--		<div class="footer-col_left footer-col_left_margin_top">-->
-<!--			<ul class="list-unstyled">-->
-<!--				<li class="footer-list_item">-->
-<!--					<div class="footer-logo">-->
-<!--						<a href="http://digiwhist.eu" target="_blank" rel="noopener"><img alt="DIGIWHIST Logo" src="/assets/img/digiwhist-logo.png"></a>-->
-<!--					</div>-->
-<!--				</li>-->
-<!--			</ul>-->
-<!--		</div>-->
-<!--		<div class="footer-col_right">-->
-<!--			<div class="footer-bottom">-->
-<!--				<div class="footer-bottom-left">-->
-<!--					<p class="page-footer__text_callout" i18n>Questions?</p>-->
-<!--					<p class="page-footer__text" i18n>Contact Opentender at <a href="mailto:{{contactmail}}" class="page-footer__link">{{contactmail}}</a>.</p>-->
-<!--					<p class="page-footer__text" i18n>Found a data error? Please report it anonymously through the <a class="clickable" (click)="showDialog = !showDialog" class="page-footer__link">contact form</a>.</p>-->
-<!--					<p class="page-footer__text">-->
-<!--						<ng-container i18n>This site (<a class="page-footer__link" target="_blank" rel="noopener" href="https://github.com/digiwhist">{{'v'+version}}</a>) is powered by open source code.</ng-container><br>-->
-<!--						<ng-container i18n>We welcome contributions and comments on <a target="_blank" rel="noopener" href="https://github.com/digiwhist/opentender-frontend/issues" class="page-footer__link">GitHub</a>.</ng-container>-->
-<!--					</p>-->
-<!--					<p class="page-footer__text">-->
-<!--						<ng-container i18n>Read more about tender legislation at </ng-container><br><a class="page-footer__link" target="_blank" rel="noopener" href="{{ country.id | europamLink}}"><i class="icon-new-tab"></i> EuroPAM</a>-->
-<!--					</p>-->
-<!--				</div>-->
-<!--				<div class="footer-bottom-right">-->
-<!--					<p class="page-footer__text_callout footer-social_callout" i18n>Follow us</p>-->
-<!--					<a href="https://twitter.com/digiwhist" target="_blank" rel="noopener" class="footer-link_social">-->
-<!--						<span class="icon-stack"><span class="icon-circle icon-stack-2x"></span><span class="icon-twitter icon-stack-1x icon-stack-inverse"></span></span>&nbsp;<p class="footer-social" i18n>Twitter</p>-->
-<!--					</a>-->
-<!--					<p class="page-footer__text_callout footer-social_callout" i18n>Subscribe</p>-->
-<!--					<a href="https://opentender.us12.list-manage.com/subscribe/post?u=961461fc5e4bda742e2ffb764&id=896595d352" target="_blank" rel="noopener" class="footer-link_social">-->
-<!--						<span class="icon-stack"><span class="icon-circle icon-stack-2x"></span><span class="icon-mail2 icon-stack-1x icon-stack-inverse"></span></span>&nbsp;<p class="footer-social" i18n>Mailing list</p>-->
-<!--					</a>-->
-<!--					&lt;!&ndash;<a href="https://www.facebook.com/digiwhist" class="footer-link_social">&ndash;&gt;-->
-<!--						&lt;!&ndash;<span class="icon-stack"><span class="icon-circle icon-stack-2x"></span><span class="icon-facebook icon-stack-1x icon-stack-inverse"></span></span>&nbsp;<p class="footer-social" i18n>Facebook</p>&ndash;&gt;-->
-<!--					&lt;!&ndash;</a>&ndash;&gt;-->
-<!--				</div>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--	<div class="container">-->
-<!--		<div class="footer-col_left footer-col_left_margin_top">-->
-<!--				<div class="footer-languages">-->
-<!--					<ng-container i18n>Change the language of this page</ng-container><br/>-->
-<!--					<ng-container *ngFor="let lang of languages"><a class="page-footer__link" href="{{url}}?lang={{lang.id}}">{{lang.name}}</a></ng-container>-->
-<!--				</div>-->
-<!--		</div>-->
-<!--		<div class="footer-col_right">-->
-<!--			<div class="footer-bottom">-->
-<!--				<img alt="European Union" src="/assets/img/european-union-flag.jpg">-->
-<!--				<p class="page-footer__text" i18n>This project has received funding from the <a class="page-footer__link" href="https://ec.europa.eu/programmes/horizon2020/" target="_blank" rel="noopener">European Union’s Horizon 2020 research and innovation programme</a> under grant agreement <a class="page-footer__link" href="https://cordis.europa.eu/project/rcn/194398_en.html" target="_blank" rel="noopener">No 645852</a>.</p>-->
-<!--				<p class="page-footer__text" i18n>The information and views set out on this website are those of the author(s) only and do not reflect any collection opinion of the DIGIWHIST consortium, nor do they reflect the official opinion of the European Commission. Neither the European Commission nor any Person acting on behalf of the European Commission is responsible for the use which might be made of the Information published on this website.</p>-->
-<!--			</div>-->
-<!--		</div>-->
-<!--	</div>-->
-<!--</div>-->
-
-<app-dialog i18n-title title="Report an error" [(visible)]="showDialog">
-	<form method="POST" action="https://formspree.io/{{contactmail}}">
-		<input hidden name="url" type="hidden" value="{{urlFull}}">
-		<textarea name="message" i18n-placeholder placeholder="Your message" required></textarea>
-		<button class="btn btn_main btn_small button-right" type="submit" i18n>Send</button>
-	</form>
-	<div class="dialog-footer" i18n>Service powered by <a target="_blank" rel="noopener" href="https://formspree.io">Formspree.io</a></div>
-</app-dialog>

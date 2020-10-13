@@ -11,8 +11,7 @@ import {Colors} from '../../../model/colors';
 		<div class="graph-title">
 			{{title}}
 			<info-button>
-				<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-					incididunt ut labore et dolore magna aliqua.</p>
+				<p *ngFor="let text of tooltipTexts">{{text}}</p>
 			</info-button>
 		</div>
 		<div class="graph-toolbar-container"></div>
@@ -30,6 +29,7 @@ export class GraphIndicatorScoreHistogramComponent implements OnChanges, ISeries
 	title: string = '';
 	@Input()
 	glossary: string;
+	@Input() tooltipTexts = [''];
 
 	avg_score_in_years: IChartBar = {
 		chart: {

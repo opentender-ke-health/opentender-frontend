@@ -6,6 +6,7 @@ import {StateService} from '../../services/state.service';
 import {IAuthority, IStats, IStatsCompanies, IStatsCpvs, ISearchCommand, IStatsNuts, IStatsPricesInYears, IBenchmarkFilter, ISearchFilterDefType, ISearchCommandFilter, IBreadcrumb} from '../../app.interfaces';
 import {ConfigService, Country} from '../../services/config.service';
 import {NotifyService} from '../../services/notify.service';
+import {REGION_BENCHMARK} from '../../model/gradLegend';
 
 /// <reference path="./model/tender.d.ts" />
 import Buyer = Definitions.Buyer;
@@ -44,12 +45,13 @@ export class AuthorityPage implements OnInit, OnDestroy {
 			data: null, filters: []
 		}
 	};
+	public REGION_BENCHMARK = REGION_BENCHMARK;
 
 	constructor(private route: ActivatedRoute, private api: ApiService, private titleService: TitleService,
 				private state: StateService, private i18n: I18NService, private config: ConfigService, private notify: NotifyService) {
 		this.country = config.country;
 		this.viz.top_companies.title = i18n.get('Main Suppliers');
-		this.viz.stats.title = i18n.get('Benchmark Current Authority');
+		this.viz.stats.title = i18n.get('Benchmark Current Buyer');
 		this.buildCrumbs();
 	}
 
@@ -103,7 +105,7 @@ export class AuthorityPage implements OnInit, OnDestroy {
 	buildBenchmarkFilter() {
 		this.viz.stats.filters = [];
 		if (this.authority.buyerType) {
-			this.viz.stats.filters.push({id: 'buyerType', name: this.i18n.get('Limit to same Authority Type'), active: true});
+			this.viz.stats.filters.push({id: 'buyerType', name: this.i18n.get('Limit to same Buyer Type'), active: true});
 		}
 		if (this.authority.mainActivities && this.authority.mainActivities.length > 0) {
 			this.viz.stats.filters.push({id: 'mainActivities', name: this.i18n.get('Limit to same Main Activities'), active: false});

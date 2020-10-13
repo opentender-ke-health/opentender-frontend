@@ -9,7 +9,12 @@ import {Colors} from '../../../model/colors';
 @Component({
 	selector: 'graph[benchmarks-distribution]',
 	template: `
-		<div class="graph-title">{{title}}</div>
+		<div class="graph-title">
+			{{title}}
+			<info-button>
+				<p>Compare the selected tender to other tenders using different indicators. The colored dots show the distribution of the indicator values among all tenders. The gray bar indicates where the indicator value of the selected tender falls. The size of the dots reflects the number of tenders having the same indicator value. You can compare tenders either by the overall Good Procurement Score, which combines all Transparency and Integrity Indicators, or the individual Transparency or Integrity indicators.</p>
+			</info-button>
+		</div>
 		<div class="benchmark-select">
 			<div class="select-radios">
 				<div i18n><strong>Indicator Group</strong></div>

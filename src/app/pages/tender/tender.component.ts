@@ -66,6 +66,15 @@ export class TenderPage implements OnInit, OnDestroy {
 			filters: []
 		}
 	};
+	public tooltips = {
+		'Integrity Indicator': [
+			'The shown indicators assess the level of integrity for this contract by measuring a number of red flags that indicate a risk of low level of integrity in this procurement process. They evaluate different elements of the process of awarding contracts such as the length of the tender advertisement period, as well as key outputs such as number of bidders. The overall score shows the average of the individual Integrity Indicators for this contract. For example, an average score of 40 means that only 40% of the key integrity dimensions showed no risks (covered by the individual integrity indicators) based on all contracts awarded during the selected time period.',
+			'For further details see the Data Explainer on the About page.'
+		],
+		'Transparency Indicator': [
+			'The shown indicators assess the level of transparency for this contract by measuring the share of crucial pieces of information available. The overall score shows the average of the individual Transparency Indicators for this contract, each of which stands for one key piece of information that should be published for transparent public procurement.'
+		],
+	};
 
 	constructor(private route: ActivatedRoute, private api: ApiService, private config: ConfigService, private platform: PlatformService,
 				private notify: NotifyService, private i18n: I18NService, private indicators: IndicatorService) {

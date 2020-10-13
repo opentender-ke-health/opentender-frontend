@@ -14,8 +14,7 @@ import {PlatformService} from '../../services/platform.service';
 			<div class="graph-title">
 				{{title}}
 				<info-button>
-					<p><strong>Tooltip example</strong> ipsum dolor sit amet, consectetur adipisicing elit, sed do teiusmod tempor
-						incididunt ut labore et dolore magna aliqua.</p>
+					<p><strong>Number of tenders per region</strong> The map shows the number of tenders, meaning finalised procurement processes. View their number across the whole country, or divided by regions. Click on one area to view more details on public procurement in that region.</p>
 				</info-button>
 			</div>
 			<div class="graph-toolbar-container">
@@ -46,7 +45,7 @@ export class MapHomeComponent {
 	}
 
 	getTitle() {
-		return this.map_companies ? this.i18n.get('Number of Suppliers by Region') : this.i18n.get('Number of Buyers by Region');
+		return this.map_companies ? this.i18n.get('Number of Suppliers by Region') : this.i18n.get('Number of Tenders by Region');
 	}
 
 	formatTooltipCallback(featureProperties) {

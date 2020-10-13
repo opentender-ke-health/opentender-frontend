@@ -13,7 +13,7 @@ import * as Config from '../../../../../config.dist.js';
 		<div class="graph-title" i18n>Tenders over Time</div>
 		<div class="graph-toolbar-container">
 			<div class="graph-toolbar graph-toolbar-left">
-				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Nr. of Tenders</button>
+				<button class="tool-button" [ngClass]="{down:mode==='nr'}" (click)="toggleValue('nr')" i18n>Number of tenders</button>
 				<button class="tool-button" [ngClass]="{down:mode==='vol'}" (click)="toggleValue('vol')" i18n>Total Volume ({{currencySymbol}})</button>
 				<button class="tool-button" [ngClass]="{down:mode==='avg'}" (click)="toggleValue('avg')" i18n>Average Volume ({{currencySymbol}})</button>
 			</div>
