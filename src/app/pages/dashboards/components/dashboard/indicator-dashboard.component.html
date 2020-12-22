@@ -4,7 +4,7 @@
 		<h1 class="container-title">{{title}}</h1>
 		<p class="container-description" *ngFor="let text of pageDescription">{{text}}</p>
 	</div>
-	<div class="container container-margin">
+	<div class="container container-margin" style="position: relative; z-index: 2">
 		<div class="container-left-12">
 			<select-year-range [years]="viz.scores.years.data" (onRangeChange)="onYearRangeSliderChange($event)"></select-year-range>
 		</div>
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 	</div>
-	<div [ngClass]="{'is-loading': loading>0}">
+	<div [ngClass]="{'is-loading': loading>0}" style="position: relative; z-index: 1">
 		<div class="container">
 			<div class="container-left-12">
 				<div class="graph-title" i18n>

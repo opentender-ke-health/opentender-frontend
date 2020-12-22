@@ -6,27 +6,27 @@
 		"subindicators": {
 			"INTEGRITY_SINGLE_BID": {
 				"name": "Single bidder contract",
-				"desc": "Single bid signals a risk when only one bid is submitted in a tender in a competitive market.",
+				"desc": "Share of contracts where more than one bids were received.",
 				"order": 1
 			},
 			"INTEGRITY_CALL_FOR_TENDER_PUBLICATION": {
 				"name": "Call for tenders publication",
-				"desc": "Not publishing calls for tender signals a risk when no call for tenders is published prior to a contract award, decreasing the potential bidder pool.",
+				"desc": "Share of contracts for which the call for tender was published prior to a contract award increasing the potential bidder pool.",
 				"order": 2
 			},
 			"INTEGRITY_PROCEDURE_TYPE": {
 				"name": "Procedure type",
-				"desc": "Non-open procedures signal a risk of using procedures types which are less open for competition and more readily used for directly contracting connected companies (e.g. negotiated without publication).",
+				"desc": "Share of contracts for which open procedures were used which are more open for competition",
 				"order": 3
 			},
 			"INTEGRITY_ADVERTISEMENT_PERIOD": {
 				"name": "Length of advertisement period",
-				"desc": "Advertisement period length reveals the risk of suspiciously tight bidding deadlines or when advertisement period is excessively long.",
+				"desc": "Share of contracts for which the length of time between the call for tender publication and the bid deadline was not significantly different from other contracts' advertisement period",
 				"order": 4
 			},
 			"INTEGRITY_DECISION_PERIOD": {
 				"name": "Length of decision period",
-				"desc": "Length of decision period signals risks when the the decision period length is either suspiciously short or suspiciously long.",
+				"desc": "Share of contracts for which the length of the period from bid deadline to decision on contract award was not significantly different from other contracts' decision period.",
 				"order": 5
 			},
 			"INTEGRITY_NEW_COMPANY": {
@@ -43,7 +43,7 @@
 			},
 			"INTEGRITY_DESCRIPTION_LENGTH": {
 				"name": "Description length",
-				"desc": "Product description length signals the risk of product description being tailored to one company, when the description is excessively long.",
+				"desc": "Share of contracts where the product description is excessively long which may indicate the risk of product description being tailored to one company.",
 				"order": 6
 			},
 			"INTEGRITY_POLITICAL_CONNECTIONS_OF_SUPPLIERS": {
@@ -54,7 +54,7 @@
 			},
 			"INTEGRITY_WINNER_CA_SHARE": {
 				"name": "Winner contract share",
-				"desc": "Winner contract share is the share of contract value won by a given company from a given buyer in a given year.",
+				"desc": "Winner's contract share is the share of contract value won by a given company from a given buyer in a given year. The low value of this indicator signals the risk of the buyer being dependent on one or few companies which may lead to vulnerability for extortion and corruption.",
 				"order": 7
 			},
 			"INTEGRITY_ELIGIBILITY_CRITERIA_LENGTH": {
@@ -77,7 +77,7 @@
 			},
 			"INTEGRITY_SIGNATURE_PERIOD": {
 				"name": "Length of contract signature period",
-				"desc": "Length of signature period",
+				"desc": "Share of contracts for which the period between the contract award and the contract signature date is not significantly different from other contracts' signature period",
 				"order": 8
 			}
 		},
@@ -100,75 +100,81 @@
 				"order": 0
 			},
 			"TRANSPARENCY_BUYER_NAME_MISSING": {
-				"name": "Non-missing buyer name",
-				"desc": "Buyer name is not missing in the published notice.",
+				"name": "Buyer's name available",
+				"desc": "Share of contracts for which buyer's name is available in the published notice.",
 				"order": 1
 			},
 			"TRANSPARENCY_YEAR_MISSING": {
-				"name": "Non-missing year info",
-				"desc": "Year is not missing in the published notice.",
+				"name": "Year info available",
+				"desc": "Share of contracts for which year is available in the published notice.",
 				"order": 2
 			},
 			"TRANSPARENCY_TITLE_MISSING": {
-				"name": "Non-missing title",
-				"desc": "Title is not missing in the published notice.",
+				"name": "Tender title available",
+				"desc": "Share of contracts for which title is available in the published notice.",
 				"order": 3
 			},
 			"TRANSPARENCY_BIDDER_NAME_MISSING": {
-				"name": "Non-missing bidder name",
-				"desc": "Bidder name is not missing in the published notice.",
+				"name": "Bidder's name available",
+				"desc": "Share of contracts for which bidder's name is available in the published notice.",
 				"order": 4
 			},
 			"TRANSPARENCY_BIDDER_ID_MISSING": {
-				"name": "Non-missing bidder ID",
-				"desc": "Bidd ID is not missing in the published notice.",
+				"name": "Bidder's ID available",
+				"desc": "Share of contracts for which bidder's ID is available in the published notice.",
 				"order": 5
 			},
 			"TRANSPARENCY_CA_TYPE_MISSING": {
-				"name": "Non-missing buyer type",
-				"desc": "Buyer type is not missing in the published notice.",
+				"name": "Buyer type available",
+				"desc": "Share of contracts for which buyer's type is available in the published notice.",
 				"order": 6
 			},
 			"TRANSPARENCY_VALUE_MISSING": {
-				"name": "Non-missing contract value",
-				"desc": "Contract value is not missing in the published notice.",
+				"name": "Contract value available",
+				"desc": "Share of contracts for which contract value is available in the published notice.",
 				"order": 7
 			},
 			"TRANSPARENCY_IMP_LOC_MISSING": {
-				"name": "Non-missing buyer location",
-				"desc": "Buyer location is not missing in the published notice.",
+				"notused": true,
+				"name": "Implementation location available",
+				"desc": "Share of contracts for which implementation location is available in the published notice.",
 				"order": 0
 			},
 			"TRANSPARENCY_PROC_METHOD_MISSING": {
-				"name": "Non-missing procedure type",
-				"desc": "Procedure type is not missing in the published notice.",
+				"name": "Procedure type available",
+				"desc": "Share of contracts for which procedure type is available in the published notice.",
 				"order": 8
 			},
 			"TRANSPARENCY_BID_NR_MISSING": {
-				"name": "Non-missing number of bids",
-				"desc": "Number of bids is not missing in the published notice.",
+				"name": "Number of bids available",
+				"desc": "Share of contracts for which number of bids is available in the published notice.",
 				"order": 9
 			},
 			"TRANSPARENCY_AWARD_DATE_MISSING": {
-				"name": "Non-missing award date",
-				"desc": "Award date is not missing in the published notice.",
+				"name": "Award date available",
+				"desc": "Share of contracts for which award date is available in the published notice.",
 				"order": 10
 			},
 			"TRANSPARENCY_HEADOFENTITY_DATE_MISSING": {
 				"notused": true,
-				"name": "Non-missing head of entity approval date",
-				"desc": "Head of entity approval date is not missing in the published notice.",
+				"name": "Available head of entity approval date",
+				"desc": "Share of contracts for which head of entity approval date is available in the published notice.",
 				"order": 0
 			},
 			"TRANSPARENCY_COMMITTEE_DATE_MISSING": {
 				"notused": true,
-				"name": "Non-missing committee approval date",
-				"desc": "Committee approval date is not missing in the published notice.",
+				"name": "Available committee approval date",
+				"desc": "Share of contracts for which committee approval date is available in the published notice.",
 				"order": 0
 			},
+			"TRANSPARENCY_BUYER_LOC_MISSING": {
+				"name": "Buyer's location available",
+				"desc": "Share of contracts for which buyer's location is available in the published notice.",
+				"order": 11
+			},
 			"TRANSPARENCY_SIGN_DATE_MISSING": {
-				"name": "Non-missing contract signature date",
-				"desc": "Contract signature date is not missing in the published notice.",
+				"name": "Contract signature date available",
+				"desc": "Share of contracts for which contract signature date is available in the published notice.",
 				"order": 12
 			}
 		},

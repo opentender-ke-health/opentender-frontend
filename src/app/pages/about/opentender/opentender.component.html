@@ -5,24 +5,238 @@
 		</div>
 		<div class="section__content">
 			<div class="about">
-				<p class="about__text" i18n>Around one-third of government expenditure is spent globally every year on procuring goods, works and services. Some estimates indicate that corruption increases the cost of government contracts by 20-25%. Corruption in public procurement also compromises widely supported public goals, such as building safe roads, high quality school buildings, or delivering medicine in time.</p>
-				<p class="about__text" i18n>Providing comprehensive public procurement information free of charge in an easy-to-use format to all interested parties is expected to increase market transparency, decrease transaction costs, and facilitate government accountability. Hence, opentender.eu, a central, public, and open procurement platform has been set up to contribute to achieving value for money in public procurement as well as increasing integrity throughout the public sector.</p>
-				<h2 class="h3 about__title">Data Explainer</h2>
-				<p class="about__text" i18n>Here you can find more details on the data and the indicators</p>
-				<h2 class="h3 about__title">Who is behind Opentender {{countryName}}?</h2>
 				<div class="about__flex-wrap">
-					<accordion [title]="'Government Transparency Institute'">
-						<p class="accordion__text"><a class="accordion__link" target="_blank" href="http://www.govtransparency.eu">The Government Transparency Institute’s</a> foundation in 2015 was motivated by growing need and opportunity to do independent research and advocacy on transparency, corruption and quality of government in Europe and beyond. The Institute is a non-partisan think tank independent of governments, political parties or special interest groups. The aim of the Institute is to systematically explore the causes, characteristics, and consequences of low quality of government in an inter-disciplinary approach drawing on political science, economics, law, and data science. The Institute aims to aid citizens to hold governments accountable through the publication of large datasets and robust analysis.</p>
+					<accordion [title]="'Where does the data come from?'">
+						<p class="accordion__text">The public procurement dataset published on Opentender Kenya was collected from the national Public Procurement Information Portal managed by the Public Procurement Regulatory Authority (PPRA). Data is covered between the period of 2018 and 2019. Notices and awarded contracts were stored separately on the national public procurement portal. There were 890 awarded contracts and 1141 incomplete notices. Notice information highly overlapped with contract award data, files were appended to each other. Source: <a class="accordion__link" target="_blank" href="https://tenders.go.ke/website">https://tenders.go.ke/website</a></p>
 					</accordion>
 				</div>
 				<div class="about__flex-wrap">
-					<accordion [title]="('Integrity Commission of ' + countryName)">
-						<p class="accordion__text">The Integrity Commission aims to enable an orderly and corrupt-free society for citizens, residents, visitors and investors while ensuring efficient utilization of public resources. As it strives to discharge its lawful mandate pursuant to the Contractor-General Act, it intends to increase the use of Information Technology to support its business processes, in an effort to more effectively and efficiently, capture and analyze data.</p>
+					<accordion [title]="'Improvement and standardization of geographic information in the dataset'">
+						<p class="accordion__text">In order to show regional level aggregated information on the website, we needed precise addresses but the original data source lacked any geographic information. To get exact and consistent addresses for all contracts, we gathered geographic information manually on all buying entities using Google search, then we matched them to the dataset by buyer name. Based on the addresses, we were able to assign regional codes to the contracts.  First two letters of the geographic code (KE) refer to the country, the first digit indicates one of the 8 regional subdivisions, and the second digit indicates one of the 47 counties.</p>
 					</accordion>
 				</div>
 				<div class="about__flex-wrap">
-					<accordion [title]="'University of Sussex (Centre for the Study of Corruption)'">
-						<p class="accordion__text"><a class="accordion__link" target="_blank" href="https://www.sussex.ac.uk/research/centres/centre-for-study-of-corruption/">The Centre for the Study of Corruption</a> was established in 2012 and has become an international centre of excellence for research, teaching and policy advice on corruption and anti-corruption. Our research spans corruption in politics and public administration, business and sport. In terms of teaching, we offer three Master's level programmes, taught in Brighton, Doha and through distance learning. We engage with governments around the world to provide evidence-based advice on the development of anti-corruption policy.</p>
+					<accordion [title]="'Standardization of products and services'">
+						<p class="accordion__text">In order to show market level aggregated information, we needed to classify products and services into groups. As source data lacked information on product classification, we assigned CPV (Common Procurement Vocabulary) product codes to tenders based on a list of keywords including the first 100 most frequent expressions product descriptions and an additional list of healthcare related words.</p>
+						<p class="accordion__text">CPV codes are 8 digit codes, where the first 2 digits specify divisions, higher market levels, such as ‘33-Medical equipment, pharmaceutical products’, the first 3 digits refers to groups, for example ‘331-Medical equipments’, the first 4 digits identify classes, for example:‘3316- Operating techniques’, and the first 5 digits indicate categories, for example ‘33161-Electrosurgical unit‘. Source: <a class="accordion__link" target="_blank" href="https://simap.ted.europa.eu/cpv">https://simap.ted.europa.eu/cpv</a></p>
+					</accordion>
+				</div>
+				<div class="about__flex-wrap">
+					<accordion [title]="'Classification of procedure types'">
+						<p class="accordion__text">Public procurement procedure types are classified into higher level groups based on the level of competition they allow. In Kenya, open tenders and two stage tendering were classified as open procedure; direct procurement as outright award; expression of interest, and electronic reverse auction as other procurement methods. Request for quotation was categorised as approaching bidders, design competition as design contest, framework agreement as DPS (Dynamic Purchase System), request for proposal as negotiated with publication, and restricted remained restricted.</p>
+					</accordion>
+				</div>
+				<div class="about__flex-wrap">
+					<accordion [title]="'Classification of buyer types'">
+						<p class="accordion__text">In the Opentender Kenya website, there is an option to limit the comparison to buyers with the same buyer type in the benchmarking part of the buyer profile page. We grouped buyers into the following categories: national authority, national agency, public body, regional authority, regional agency and other.</p>
+						<p class="accordion__text">National authorities are at the central level of government. Entities with regulatory power like ministries, national councils and commissions fall into this category. Regional and local authorities have limited decision making power, providing public services at regional or municipal level. Hospitals, universities, regional administrations are included in these categories.</p>
+						<p class="accordion__text">Buyer types were assigned to procuring entities by using a list of keywords (‘ministry’, ‘national’, ‘regional’, ‘university’, etc.), which appeared in the buyers’ name. ‘Other’ category was assigned if the buyer name was available but could not be classified with the abovementioned method.</p>
+					</accordion>
+				</div>
+				<div class="about__flex-wrap">
+					<accordion [title]="'How are health sector tenders identified?'">
+						<p class="accordion__text">The original public procurement data source did not contain information on product classification. Therefore, health sector tenders were identified by a list of keywords (more than 1000 words) that capture different health care services, medical equipment and pharmaceutical products. Based on the keywords, product codes were assigned to the relevant tenders using the standard CPV (Common Procurement Vocabulary) nomenclature.</p>
+					</accordion>
+				</div>
+				<div class="about__flex-wrap">
+					<accordion [title]="'Definition of Integrity Indicators'">
+						<p class="accordion__text">The Integrity Indicator methodology is based on a corruption definition specific to public procurement, which refers to the allocation and performance of public contracts by distorting the principles of open and fair government contracting in order to benefit some to the detriment of all others. In other words, the aim of corruption is to avoid or distort competition in order to favour a certain, connected bidder.</p>
+						<p class="accordion__text">One way to measure this phenomenon is to consider the lack of bidders for government contracts (single-bidding) as an outcome, whereas, adverse tendering practices (for example, choosing non-open procedure types and shortening advertising period) as inputs of the low-integrity procurement process. The ‘red flags’, that are most likely to signal integrity risks, were identified in a statistical analysis. Tendering characteristics that had a significant and positive relationship with single-bidding are defined as red flags.</p>
+						<p class="accordion__text">Integrity Indicator list in Kenya:</p>
+						<ul class="accordion__list">
+							<li class="accordion__list-item"><strong>Single bidder contract</strong>: Single bidding is the simplest indication of restricted competition reflecting our corruption definition when only one bid is submitted for a tender on a competitive market (for further discussion of single bidding see Charron, Dahlström, Fazekas, & Lapuente, 2017). Sources: Single bidding is the simplest indication of restricted competition reflecting our corruption definition when only one bid is submitted for a tender on a competitive market (for further discussion of single bidding see Charron, Dahlström, Fazekas, & Lapuente, 2017). Sources: <a class="accordion__link" target="_blank" href="http://www.govtransparency.eu/index.php/2017/07/05/careers-connections-and-corruption-risks-investigating-the-impact-of-bureaucratic-meritocracy-on-public-procurement-processes/">http://www.govtransparency.eu/index.php/2017/07/05/careers-connections-and-corruption-risks-investigating-the-impact-of-bureaucratic-meritocracy-on-public-procurement-processes/</a></li>
+							<li class="accordion__list-item"><strong>Length of advertisement period</strong>: A short submission period, that is the number of days between publishing a tender and the submission deadline, leaves less time and thus makes it harder for non-connected companies to bid successfully, whereas a well-connected firm can use its inside knowledge to win repeatedly as the buyer can informally inform the favoured bidder about the opportunity ahead of time.</li>
+							<li class="accordion__list-item"><strong>Call for tenders publication</strong>: Not publishing the call for tenders makes it less likely that eligible bidders notice the bidding opportunity, weakening the competition and allowing the contracting bodies to more easily award contracts repeatedly to a well-connected company.</li>
+							<li class="accordion__list-item"><strong>Procedure type</strong>: Using procedure types which are less transparent and require less open competition can indicate the deliberate limitation of the range of bids received and to exclude bids as well as creating more opportunities for contracting bodies to repeatedly award contracts to the same well-connected company.</li>
+							<li class="accordion__list-item"><strong>Length of decision period</strong>: an excessively short or long decision period, that is the number of days between the submission deadline and the contract award decision, can signal integrity risks. Snap decisions may reflect premeditated assessment, while long decision periods signal extensive legal challenges to the tender, suggesting that the issuer attempted to limit competition.</li>
+							<li class="accordion__list-item"><strong>Description length</strong>: lack or minimal availability of information on the purchased item, especially in case of large volume contracts might be a signal of corruption risk, making it difficult to track public money spending.</li>
+							<li class="accordion__list-item"><strong>Winner's contract share</strong>: Suppliers' share in a buyer's total spending can be used to measure the level of competitiveness and market openness. High supplier spending share, when a supplier or group of suppliers are awarded most procurement spending per buyer, can signal that a network has captured public contracting, potentially leading to higher prices, lower quality of work and value for money.</li>
+							<li class="accordion__list-item"><strong>Length of signature period</strong>: Lengthy signature period might signal post contract modifications, disagreement between the buyer and supplier, legal challenges (appeals) that prohibit contract realization.</li>
+						</ul>
+					</accordion>
+				</div>
+				<div class="about__flex-wrap">
+					<accordion [title]="'Calculation of Integrity Indicators'">
+						<p class="accordion__text">The higher value of the Integrity Indicators indicate that the examined factor does not increase the probability of single bidding, while the low value means that it can contribute to single bidding.</p>
+						<table class="accordion__table">
+							<tr>
+								<th>Indicator name</th>
+								<th>Formula</th>
+							</tr>
+							<tr>
+								<td>Single bidder contract</td>
+								<td>
+									100: more than 1 bid received<br>
+									0: 1 bid received
+								</td>
+							</tr>
+							<tr>
+								<td>Call for tenders publication</td>
+								<td>
+									100: call for tender/prior information notice published in official journal<br>
+									0: NO call for tender/prior information notice published in official journal
+								</td>
+							</tr>
+							<tr>
+								<td>Length of advertisement period</td>
+								<td>
+									100: number of days between publication of call for tenders and submission deadline <= 21 days<br>
+									0: number of days between publication of call for tenders and submission deadline >= 22 days
+								</td>
+							</tr>
+							<tr>
+								<td>Procedure type</td>
+								<td>
+									100: open (open tender)<br>
+									50: limited (international competitive bidding, limited tender, local competitive bidding, sole source)<br>
+									0: non-open (direct contracting, electronic direct contracting, selective tender)
+								</td>
+							</tr>
+							<tr>
+								<td>Length of decision period</td>
+								<td>
+									100: number of days between submission deadline and announcing contract award >= 69 days<br>
+									50: number of days between submission deadline and announcing contract award is between 8 and 68 days<br>
+									0: number of days between submission deadline and announcing contract award <= 8 days
+								</td>
+							</tr>
+							<tr>
+								<td>Description length</td>
+								<td>
+									100: tender description length > 0<br>
+									0: tender description length = 0
+								</td>
+							</tr>
+							<tr>
+								<td>Winner's contract share</td>
+								<td>
+									100: the winner’s share is 0%<br>
+									0: the winner’s share is 100%<br>
+									Continuous number between 0 and 100
+								</td>
+							</tr>
+							<tr>
+								<td>Length of signature period</td>
+								<td>
+									100: number of days between announcing contract award and contract signature date is between 5 and 47 days<br>
+									0: number of days between announcing contract award and contract signature date is <= 4 OR >= 48 days
+								</td>
+							</tr>
+						</table>
+					</accordion>
+				</div>
+				<div class="about__flex-wrap">
+					<accordion [title]="'Definition of Transparency Indicators'">
+						<p class="accordion__text">Transparency Indicators measure availability of crucial information in the public procurement notices. These pieces of information are important for monitoring the performance of public contracts. If they are missing, it makes the procedure less transparent and harder to monitor. The high value of the Transparency Indicators indicates a high level of transparency.</p>
+						<p class="accordion__text">List of Transparency Indicators in Kenya</p>
+						<ul class="accordion__list">
+							<li class="accordion__list-item">Buyer's name available</li>
+							<li class="accordion__list-item">Year info available</li>
+							<li class="accordion__list-item">Tender title available</li>
+							<li class="accordion__list-item">Bidder's name available</li>
+							<li class="accordion__list-item">Bidder's ID available</li>
+							<li class="accordion__list-item">Buyer type available</li>
+							<li class="accordion__list-item">Contract value available</li>
+							<li class="accordion__list-item">Procedure type available</li>
+							<li class="accordion__list-item">Number of bids available</li>
+							<li class="accordion__list-item">Award date available</li>
+							<li class="accordion__list-item">Buyer's location available</li>
+							<li class="accordion__list-item">Contract signature date available</li>
+						</ul>
+					</accordion>
+				</div>
+				<div class="about__flex-wrap">
+					<accordion [title]="'Calculation of Transparency Indicators'">
+						<table class="accordion__table">
+							<tr>
+								<th>Indicator name</th>
+								<th>Formula</th>
+							</tr>
+							<tr>
+								<td>Buyer's name available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Year info available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Tender title available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Bidder's name available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Bidder's ID available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Buyer type available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Contract value available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Procedure type available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Number of bids available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Award date available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Buyer's location available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+							<tr>
+								<td>Contract signature date available</td>
+								<td>
+									100: information available<br>
+									0: information missing
+								</td>
+							</tr>
+						</table>
 					</accordion>
 				</div>
 			</div>

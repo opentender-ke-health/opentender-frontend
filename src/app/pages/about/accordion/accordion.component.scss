@@ -1,5 +1,9 @@
 @import "../../../../style/globals.scss";
 
+:host {
+	width: 100%;
+}
+
 .accordion {
 	&__title {
 		font-size: 20px;
@@ -25,10 +29,5 @@
 				transform: rotate(180deg);
 			}
 		}
-	}
-
-	&__text {
-		margin-top: 15px;
-		line-height: 1.4;
 	}
 }

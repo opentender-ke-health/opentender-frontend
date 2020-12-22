@@ -6,9 +6,60 @@
 		margin-left: 20%;
 		margin-top: $base-padding;
 	}
-
-	.accordion__text {
+}
+.accordion {
+	&__text {
 		margin-top: 15px;
 		line-height: 1.4;
+	}
+
+	&__list {
+		margin-top: 15px;
+	}
+
+	&__list-item {
+		font-size: inherit;
+		line-height: 1.4;
+
+		& + & {
+			margin-top: 10px;
+		}
+	}
+
+	&__table {
+		margin-top: 15px;
+		width: 100%;
+
+		th {
+			background-color: #36bba4;
+			border: 1px solid #36bba4;
+			font-weight: 700;
+			vertical-align: middle;
+			font-size: 14px;
+			color: #fff;
+			text-align: left;
+			padding: 6px 30px 6px 20px;
+			white-space: nowrap;
+
+			&:not(:first-child) {
+				position: relative;
+
+				&::before {
+					content: "";
+					height: 100%;
+					width: 1px;
+					display: block;
+					position: absolute;
+					background-color: #ebf5f3;
+					left: -1px;
+					top: 0;
+				}
+			}
+		}
+
+		td {
+			line-height: 17px;
+			padding: 20px;
+		}
 	}
 }

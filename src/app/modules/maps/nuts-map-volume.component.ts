@@ -10,7 +10,7 @@ import * as Config from '../../../../config.dist.js';
 			Volume ({{currencySymbol}}) by Region
 			<info-button>
 				<p>
-					The map shows the volume of contracts awarded by regions in JM$. Click on one area to view more details on public procurement in that region.<br>
+					The map shows the volume of contracts awarded by regions in KES. Click on one area to view more details on public procurement in that region.<br>
 					Region information was assigned using raw addresses published on the original source, for more details see the Data Explainer on the About page.
 				</p>
 			</info-button>
