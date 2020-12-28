@@ -224,37 +224,6 @@ export const TenderColumns: Array<ITableColumnTender> = [
 		}
 	},
 	{
-		name: 'Supplier Type',
-		id: 'lots.bids.bidder.body.bidderType',
-		group: 'Supplier',
-		sortBy: {
-			id: 'lots.bids.bidder.body.bidderType',
-			ascend: true
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let result: Array<ITableCellLine> = [];
-			tender.lots.forEach((lot: Lot) => {
-				if (lot.bids) {
-					lot.bids.forEach((bid: Bid) => {
-						if (bid.bidders) {
-							bid.bidders.forEach((bidder: Bidder) => {
-								if (bidder.bidderType) {
-									result.push({
-										content: bidder.bidderType
-									});
-								}
-							});
-						}
-					});
-				}
-			});
-			return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
-		}
-	},
-	{
 		name: 'Buyer',
 		id: 'buyers.name',
 		group: 'Buyer',
@@ -289,7 +258,7 @@ export const TenderColumns: Array<ITableColumnTender> = [
 				if (buyer.address && buyer.address.ot && buyer.address.ot.nutscode) {
 					let nut = buyer.address.ot.nutscode;
 					let city = buyer.address.city;
-					result.push({icon: ICON.region, content: city, hint: library.i18n.get('Profile Page') + ' NUTS ' + nut, link: '/region/' + nut});
+					result.push({icon: ICON.region, content: city, hint: library.i18n.get('Profile Page') + ' ' + city, link: '/region/' + nut});
 				}
 			});
 			return ColumnsFormatUtils.checkEntryCollapse(ColumnsFormatUtils.sortListByContent(result), library);
@@ -445,18 +414,8 @@ export const TenderColumns: Array<ITableColumnTender> = [
 		},
 		format: (tender, library) => {
 			return tender.title ? [{content: tender.title, link: '/tender/' + tender.id, hint: library.i18n.get('Profile Page') + ' ' + tender.title}] :
-			[{icon: ICON.tender + ' icon-large', content: '', link: '/tender/' + tender.id, hint: library.i18n.get('Profile Page') + ' ' + tender.title}];
+				[{icon: ICON.tender + ' icon-large', content: '', link: '/tender/' + tender.id, hint: library.i18n.get('Profile Page') + ' ' + tender.title}];
 		}
-	},
-	{
-		name: 'Description',
-		id: 'description',
-		group: 'Tender',
-		sortBy: {
-			id: 'description',
-			ascend: true
-		},
-		format: tender => [{content: tender.description}]
 	},
 	{
 		name: 'Procedure Type',
@@ -488,34 +447,6 @@ export const TenderColumns: Array<ITableColumnTender> = [
 			ascend: false
 		},
 		format: (tender, library) => ColumnsFormatUtils.formatPriceEUR(tender.finalPrice, library)
-	},
-	{
-		name: 'Bid Price',
-		id: 'lots.bids.price',
-		group: 'Prices',
-		sortBy: {
-			id: 'lots.bids.price.netAmountEur',
-			ascend: false
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let result: Array<ITableCellLine> = [];
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.bids) {
-					lot.bids.forEach((bid: Bid, index_b: number) => {
-						if (bid.price && Utils.isDefined(bid.price.netAmountEur)) {
-							result.push({
-								prefix: (tender.lots.length > 1 ? library.i18n.get('Lot') + ' ' + (index_l + 1) : '') + (lot.bids.length > 1 ? ' ' + library.i18n.get('Bid') + ' ' + (index_b + 1) : ''),
-								content: ColumnsFormatUtils.formatPriceEURValue(bid.price.netAmountEur, library)
-							});
-						}
-					});
-				}
-			});
-			return ColumnsFormatUtils.checkEntryCollapse(result, library);
-		}
 	},
 	{
 		name: 'Award Decision Date',
@@ -551,138 +482,61 @@ export const TenderColumns: Array<ITableColumnTender> = [
 		}
 	},
 	{
-		name: 'Committee Approval Date',
-		id: 'lots.committeeApprovalDate',
+		name: 'Call for tender date',
+		id: 'publications.publicationDate',
 		group: 'Dates',
 		sortBy: {
-			id: 'lots.committeeApprovalDate',
+			id: 'publications.publicationDate',
 			ascend: false
 		},
 		format: (tender, library) => {
-			if (!tender.lots) {
+			// @ts-ignore
+			if (!tender.publications) {
 				return [];
 			}
-			let dates = {};
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.committeeApprovalDate) {
-					dates[lot.committeeApprovalDate] = dates[lot.committeeApprovalDate] || {date: lot.committeeApprovalDate, lots: []};
-					dates[lot.committeeApprovalDate].lots.push(index_l + 1);
+			let result: Array<ITableCellLine> = [];
+			tender.publications.forEach(publication => {
+				if (publication.publicationDate) {
+					result.push({content: library.i18n.formatDate(publication.publicationDate), hint: 'Call for tender date'});
 				}
 			});
-			let result: Array<ITableCellLine> = [];
-			let datekeys = Object.keys(dates);
-			datekeys.forEach(key => {
-					let c = dates[key];
-					if (c.lots.length > 5) {
-						c.lots = c.lots.slice(0, 5);
-						c.lots.push('…');
-					}
-					result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
-				}
-			);
 			return ColumnsFormatUtils.checkEntryCollapse(result, library);
 		}
 	},
 	{
-		name: 'Head Of Entity Approval Date',
-		id: 'lots.headOfEntityApprovalDate',
+		name: 'Bid deadline',
+		id: 'bidDeadline',
 		group: 'Dates',
 		sortBy: {
-			id: 'lots.headOfEntityApprovalDate',
+			id: 'bidDeadline',
 			ascend: false
 		},
 		format: (tender, library) => {
-			if (!tender.lots) {
+			if (!tender.bidDeadline) {
 				return [];
 			}
-			let dates = {};
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.headOfEntityApprovalDate) {
-					dates[lot.headOfEntityApprovalDate] = dates[lot.headOfEntityApprovalDate] || {date: lot.headOfEntityApprovalDate, lots: []};
-					dates[lot.headOfEntityApprovalDate].lots.push(index_l + 1);
-				}
-			});
 			let result: Array<ITableCellLine> = [];
-			let datekeys = Object.keys(dates);
-			datekeys.forEach(key => {
-					let c = dates[key];
-					if (c.lots.length > 5) {
-						c.lots = c.lots.slice(0, 5);
-						c.lots.push('…');
-					}
-					result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
-				}
-			);
+			result.push({content: library.i18n.formatDate(tender.bidDeadline), hint: 'Bid deadline'});
 			return ColumnsFormatUtils.checkEntryCollapse(result, library);
 		}
 	},
 	{
-		name: 'Endorsement Date',
-		id: 'lots.endorsementDate',
+		name: 'Contract signature date',
+		id: 'contractSignatureDate',
 		group: 'Dates',
 		sortBy: {
-			id: 'lots.endorsementDate',
+			id: 'contractSignatureDate',
 			ascend: false
 		},
 		format: (tender, library) => {
-			if (!tender.lots) {
+			if (!tender.contractSignatureDate) {
 				return [];
 			}
-			let dates = {};
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.endorsementDate) {
-					dates[lot.endorsementDate] = dates[lot.endorsementDate] || {date: lot.endorsementDate, lots: []};
-					dates[lot.endorsementDate].lots.push(index_l + 1);
-				}
-			});
 			let result: Array<ITableCellLine> = [];
-			let datekeys = Object.keys(dates);
-			datekeys.forEach(key => {
-					let c = dates[key];
-					if (c.lots.length > 5) {
-						c.lots = c.lots.slice(0, 5);
-						c.lots.push('…');
-					}
-					result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
-				}
-			);
+			result.push({content: library.i18n.formatDate(tender.contractSignatureDate), hint: 'Contract signature date'});
 			return ColumnsFormatUtils.checkEntryCollapse(result, library);
 		}
 	},
-	{
-		name: 'Cabinet Approval Date',
-		id: 'lots.cabinetApprovalDate',
-		group: 'Dates',
-		sortBy: {
-			id: 'lots.cabinetApprovalDate',
-			ascend: false
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let dates = {};
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (lot.cabinetApprovalDate) {
-					dates[lot.cabinetApprovalDate] = dates[lot.cabinetApprovalDate] || {date: lot.cabinetApprovalDate, lots: []};
-					dates[lot.cabinetApprovalDate].lots.push(index_l + 1);
-				}
-			});
-			let result: Array<ITableCellLine> = [];
-			let datekeys = Object.keys(dates);
-			datekeys.forEach(key => {
-					let c = dates[key];
-					if (c.lots.length > 5) {
-						c.lots = c.lots.slice(0, 5);
-						c.lots.push('…');
-					}
-					result.push({content: library.i18n.formatDate(c.date), hint: library.i18n.get('Lot') + ' ' + c.lots.join(',')});
-				}
-			);
-			return ColumnsFormatUtils.checkEntryCollapse(result, library);
-		}
-	},
-
 	{
 		name: 'Creation Date',
 		id: 'created',
@@ -765,28 +619,4 @@ export const TenderColumns: Array<ITableColumnTender> = [
 			return ColumnsFormatUtils.checkEntryCollapse(result, library);
 		}
 	},
-	{
-		name: 'Requested Bids Count',
-		id: 'lots.requestedBidsCount',
-		group: 'Lots',
-		sortBy: {
-			id: 'lots.requestedBidsCount',
-			ascend: false
-		},
-		format: (tender, library) => {
-			if (!tender.lots) {
-				return [];
-			}
-			let result: Array<ITableCellLine> = [];
-			tender.lots.forEach((lot: Lot, index_l: number) => {
-				if (Utils.isDefined(lot.requestedBidsCount)) {
-					result.push({
-						prefix: (tender.lots.length > 1) ? library.i18n.get('Lot') + ' ' + (index_l + 1) : undefined,
-						content: lot.requestedBidsCount.toString()
-					});
-				}
-			});
-			return ColumnsFormatUtils.checkEntryCollapse(result, library);
-		}
-	}
 ];

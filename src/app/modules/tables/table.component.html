@@ -24,7 +24,7 @@
 						<graph score-gradient [value]="line.score"></graph>
 					</div>
 					<div [ngClass]="line.styleClass">
-						<span *ngIf="line.list">•&nbsp;</span><a *ngIf="line.link" routerLink="{{line.link}}" title="{{line.hint}}">
+						<a *ngIf="line.link" routerLink="{{line.link}}" title="{{line.hint}}">
 						<i *ngIf="line.icon" [ngClass]="line.icon"></i>{{line.content}}</a><span *ngIf="!line.link" title="{{line.hint}}">{{line.content}}</span>
 					</div>
 					<div class="table-collapse-lines" *ngIf="!line.collapsed && line.collapseLines">
@@ -34,7 +34,7 @@
 								<graph score-gradient [value]="line.score"></graph>
 							</div>
 							<div [ngClass]="line.styleClass">
-								<span *ngIf="line.list">•&nbsp;</span><a *ngIf="line.link" routerLink="{{line.link}}" title="{{line.hint}}">
+								<a *ngIf="line.link" routerLink="{{line.link}}" title="{{line.hint}}">
 								<i *ngIf="line.icon" [ngClass]="line.icon"></i>{{line.content}}</a><span *ngIf="!line.link" title="{{line.hint}}">{{line.content}}</span>
 							</div>
 						</div>
