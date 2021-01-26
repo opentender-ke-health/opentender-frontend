@@ -125,8 +125,8 @@
 				"order": 5
 			},
 			"TRANSPARENCY_CA_TYPE_MISSING": {
-				"name": "Buyer type available",
-				"desc": "Share of contracts for which buyer's type is available in the published notice.",
+				"name": "Supply type available",
+				"desc": "Share of contracts for which supply type is available in the published notice.",
 				"order": 6
 			},
 			"TRANSPARENCY_VALUE_MISSING": {

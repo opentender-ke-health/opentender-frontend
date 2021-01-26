@@ -23,7 +23,7 @@
 								</a>
 							</li>
 						</ul>
-						<div class="download-block__info-wrap">
+						<div class="download-block__info-wrap" *ngIf="current.formats.csv">
 							<info-button>
 								<p>A comma-separated values (CSV) file is a delimited text file that uses a comma to separate values. Each line of the file is a data record which consists of one or more fields, separated by commas. The CSV file format is supported by almost all spreadsheets and database management systems, including Excel for example.</p>
 							</info-button>
@@ -46,13 +46,13 @@
 								</a>
 							</li>
 						</ul>
-						<div class="download-block__info-wrap">
+						<div class="download-block__info-wrap" *ngIf="current.formats.json">
 							<info-button>
 								<p>JavaScript Object Notation (JSON) is an open standard file format and data-interchange format that uses human-readable text to store and transmit data objects.</p>
 							</info-button>
 							<p class="download-block__info-wrap-text">This download contains all the tender data of this portal in a JSON file and structured in the <a href="https://docs.google.com/spreadsheets/d/13pGIpt47sMBnZ68E-N-hMLiErpDB1CQwZzd2MXIlq5U/edit#gid=623190471" target="_blank">Digiwhist/Opentender standard</a> using a defined <a href="https://github.com/digiwhist/opentender-data/blob/master/shared/schema.json" target="_blank">schema</a>.</p>
 						</div>
-						<div class="download-block__info-wrap download-block__info-wrap_right">
+						<div class="download-block__info-wrap" [class.download-block__info-wrap_right]="current.formats.json && current.formats.ocds" *ngIf="current.formats.ocds">
 							<info-button>
 								<p>JavaScript Object Notation (JSON) is an open standard file format and data-interchange format that uses human-readable text to store and transmit data objects. Open Contracting Data Standard (OCDS) is an open data standard for public contracting developed by the Open Contracting Partnership.</p>
 							</info-button>
